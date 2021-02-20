@@ -1,0 +1,25 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:92:5:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgContours[m[K’ was not declared in this scope
+     [01;31m[KcvImgContours[m[K = cv::findContours(cvImgErode, contours , hierachy , cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+     [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:92:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KcvImgContour[m[K’
+     [01;36m[KcvImgContours[m[K = cv::findContours(cvImgErode, contours , hierachy , cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+     [01;36m[K^~~~~~~~~~~~~[m[K
+     [32m[KcvImgContour[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:92:61:[m[K [01;31m[Kerror: [m[K‘[01m[Khierachy[m[K’ was not declared in this scope
+     cvImgContours = cv::findContours(cvImgErode, contours , [01;31m[Khierachy[m[K , cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+                                                             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:92:61:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Khierarchy[m[K’
+     cvImgContours = cv::findContours(cvImgErode, contours , [01;36m[Khierachy[m[K , cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+                                                             [01;36m[K^~~~~~~~[m[K
+                                                             [32m[Khierarchy[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:95:33:[m[K [01;31m[Kerror: [m[K‘[01m[KcvContours[m[K’ was not declared in this scope
+     cv::imshow(OPENCV_WINDOW_1 ,[01;31m[KcvContours[m[K);//OPENCV_WINDOW_1,
+                                 [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:95:33:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kcontours[m[K’
+     cv::imshow(OPENCV_WINDOW_1 ,[01;36m[KcvContours[m[K);//OPENCV_WINDOW_1,
+                                 [01;36m[K^~~~~~~~~~[m[K
+                                 [32m[Kcontours[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/zed_nodelets/lib/pkgconfig/zed_nodelets.pc

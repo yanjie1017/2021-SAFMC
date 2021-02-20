@@ -1,0 +1,25 @@
+In file included from [01m[K/usr/include/python2.7/numpy/ndarrayobject.h:27:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module.hpp:26[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module_opencv4.cpp:3[m[K:
+[01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module.hpp:[m[K In function ‘[01m[Kvoid* do_numpy_import()[m[K’:
+[01m[K/usr/include/python2.7/numpy/__multiarray_api.h:1537:144:[m[K [01;31m[Kerror: [m[Kreturn-statement with no value, in function returning ‘[01m[Kvoid*[m[K’ [[01;31m[K-fpermissive[m[K]
+ #define import_array() {if (_import_array() < 0) {PyErr_Print(); PyErr_SetString(PyExc_ImportError, "numpy.core.multiarray failed to import"); [01;31m[Kr[m[Keturn NUMPY_IMPORT_ARRAY_RETVAL; } }
+                                                                                                                                                [01;31m[K^[m[K
+[01m[K/usr/include/python2.7/numpy/__multiarray_api.h:1537:144:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[Kimport_array[m[K’
+ #define import_array() {if (_import_array() < 0) {PyErr_Print(); PyErr_SetString(PyExc_ImportError, "numpy.core.multiarray failed to import"); [01;36m[Kreturn[m[K NUMPY_IMPORT_ARRAY_RETVAL; } }
+                                                                                                                                                [01;36m[K^~~~~~[m[K
+In file included from [01m[K/usr/include/python2.7/numpy/ndarrayobject.h:27:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module.hpp:26[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module.cpp:35[m[K:
+[01m[K/home/safmc/catkin_ws/src/vision_opencv/cv_bridge/src/module.hpp:[m[K In function ‘[01m[Kvoid* do_numpy_import()[m[K’:
+[01m[K/usr/include/python2.7/numpy/__multiarray_api.h:1537:144:[m[K [01;31m[Kerror: [m[Kreturn-statement with no value, in function returning ‘[01m[Kvoid*[m[K’ [[01;31m[K-fpermissive[m[K]
+ #define import_array() {if (_import_array() < 0) {PyErr_Print(); PyErr_SetString(PyExc_ImportError, "numpy.core.multiarray failed to import"); [01;31m[Kr[m[Keturn NUMPY_IMPORT_ARRAY_RETVAL; } }
+                                                                                                                                                [01;31m[K^[m[K
+[01m[K/usr/include/python2.7/numpy/__multiarray_api.h:1537:144:[m[K [01;36m[Knote: [m[Kin definition of macro ‘[01m[Kimport_array[m[K’
+ #define import_array() {if (_import_array() < 0) {PyErr_Print(); PyErr_SetString(PyExc_ImportError, "numpy.core.multiarray failed to import"); [01;36m[Kreturn[m[K NUMPY_IMPORT_ARRAY_RETVAL; } }
+                                                                                                                                                [01;36m[K^~~~~~[m[K
+make[2]: *** [src/CMakeFiles/cv_bridge_boost.dir/module_opencv4.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o] Error 1
+make[1]: *** [src/CMakeFiles/cv_bridge_boost.dir/all] Error 2
+make: *** [all] Error 2

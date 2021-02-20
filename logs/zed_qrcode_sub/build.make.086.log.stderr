@@ -1,0 +1,21 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In lambda function:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:98:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecoded[m[K’ is not captured
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n==[01;31m[Kdecoded[m[K;}{
+                                                                                                  [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:71:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+             if (std::none_of(decodedList.begin(), decodedList.end(), [[01;36m[K][m[K(std::string n){return n==decoded;}{
+                                                                       [01;36m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:91:17:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::__cxx11::string decoded[m[K’ declared here
+     std::string [01;36m[Kdecoded[m[K;
+                 [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectGray_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:107:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K{[m[K’ token
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n==decoded;}[01;31m[K{[m[K
+                                                                                                           [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:115:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K}[m[K’ token
+         [01;31m[K}[m[K else {
+         [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:115:9:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K}[m[K’ token
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

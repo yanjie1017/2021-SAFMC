@@ -1,0 +1,16 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:103:52:[m[K [01;31m[Kerror: [m[K‘[01m[KTHRESH_BINARY[m[K’ was not declared in this scope
+     cv::threshold(cvImgGCny, cvImgThres, 128, 255, [01;31m[KTHRESH_BINARY[m[K)
+                                                    [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:103:52:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/imgproc.hpp:317:5:[m[K [01;36m[Knote: [m[K  ‘[01m[KTHRESH_BINARY[m[K’
+     [01;36m[KTHRESH_BINARY[m[K     = 0, //!< \f[\texttt{dst} (x,y) =  \fork{\texttt{maxval}}{if \(\texttt{src}(x,y) > \texttt{thresh}\)}{0}{otherwise}\f]
+     [01;36m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:121:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kcircles[m[K’ was not declared in this scope
+     cv::HoughCircles(cvImgThres, [01;31m[Kcircles[m[K, 3, 2, cvImgThres.rows, 200, 100 , 10, cvImgThres.rows/2);
+                                  [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

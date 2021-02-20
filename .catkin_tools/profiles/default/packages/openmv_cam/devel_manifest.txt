@@ -1,0 +1,6 @@
+openmv_cam
+/home/safmc/catkin_ws/devel/.private/openmv_cam/cmake.lock /home/safmc/catkin_ws/devel/./cmake.lock
+/home/safmc/catkin_ws/devel/.private/openmv_cam/lib/pkgconfig/openmv_cam.pc /home/safmc/catkin_ws/devel/lib/pkgconfig/openmv_cam.pc
+/home/safmc/catkin_ws/devel/.private/openmv_cam/lib/python2.7/dist-packages/openMV_cam/__init__.py /home/safmc/catkin_ws/devel/lib/python2.7/dist-packages/openMV_cam/__init__.py
+/home/safmc/catkin_ws/devel/.private/openmv_cam/share/openmv_cam/cmake/openmv_camConfig.cmake /home/safmc/catkin_ws/devel/share/openmv_cam/cmake/openmv_camConfig.cmake
+/home/safmc/catkin_ws/devel/.private/openmv_cam/share/openmv_cam/cmake/openmv_camConfig-version.cmake /home/safmc/catkin_ws/devel/share/openmv_cam/cmake/openmv_camConfig-version.cmake

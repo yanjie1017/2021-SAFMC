@@ -1,0 +1,4 @@
+Symlinking /home/safmc/catkin_ws/devel/lib/zed_tracking_sub/zed_tracking_sub
+Symlinking /home/safmc/catkin_ws/devel/lib/pkgconfig/zed_tracking_sub.pc
+Symlinking /home/safmc/catkin_ws/devel/share/zed_tracking_sub/cmake/zed_tracking_subConfig-version.cmake
+Symlinking /home/safmc/catkin_ws/devel/share/zed_tracking_sub/cmake/zed_tracking_subConfig.cmake

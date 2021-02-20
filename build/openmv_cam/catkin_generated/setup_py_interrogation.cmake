@@ -1,0 +1,7 @@
+set(openmv_cam_SETUP_PY_SETUP_MODULE "distutils.core")
+set(openmv_cam_SETUP_PY_VERSION "0.0.0")
+set(openmv_cam_SETUP_PY_SCRIPTS "")
+set(openmv_cam_SETUP_PY_PACKAGES "openMV_cam")
+set(openmv_cam_SETUP_PY_PACKAGE_DIRS "src/openMV_cam")
+set(openmv_cam_SETUP_PY_MODULES "")
+set(openmv_cam_SETUP_PY_MODULE_DIRS "")

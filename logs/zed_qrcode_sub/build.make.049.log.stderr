@@ -1,0 +1,12 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:75:78:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcv::QRCodeDetector::decode(cv::Mat&, cv::Point&, cv::Mat&)[m[K’
+     std::string decoded_info = qrcodeDetector.decode(cvImgBGR, points, qrcode[01;31m[K)[m[K;
+                                                                              [01;31m[K^[m[K
+In file included from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:34:0[m[K:
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:700:25:[m[K [01;36m[Knote: [m[Kcandidate: std::__cxx11::string cv::QRCodeDetector::decode(cv::InputArray, cv::InputArray, cv::OutputArray)
+     CV_WRAP std::string [01;36m[Kdecode[m[K(InputArray img, InputArray points, OutputArray straight_qrcode = noArray());
+                         [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:700:25:[m[K [01;36m[Knote: [m[K  no known conversion for argument 2 from ‘[01m[Kcv::Point {aka cv::Point_<int>}[m[K’ to ‘[01m[Kcv::InputArray {aka const cv::_InputArray&}[m[K’
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

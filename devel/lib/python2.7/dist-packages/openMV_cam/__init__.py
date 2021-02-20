@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/openmv_cam/lib/python2.7/dist-packages/openMV_cam/__init__.py

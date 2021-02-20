@@ -1,0 +1,22 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid Window_LeftRectGray(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:146:7:[m[K [01;31m[Kerror: [m[K‘[01m[KWindowCtr_pub[m[K’ was not declared in this scope
+       [01;31m[KWindowCtr_pub[m[K.publish(windowCtr);
+       [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:146:7:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KwindowCtr[m[K’
+       [01;36m[KWindowCtr_pub[m[K.publish(windowCtr);
+       [01;36m[K^~~~~~~~~~~~~[m[K
+       [32m[KwindowCtr[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:172:41:[m[K [01;31m[Kerror: [m[K‘[01m[KWindow_LeftRectGray_Callback[m[K’ was not declared in this scope
+                                         [01;31m[KWindow_LeftRectGray_Callback[m[K);
+                                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:172:41:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KWindow_LeftRectGray[m[K’
+                                         [01;36m[KWindow_LeftRectGray_Callback[m[K);
+                                         [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+                                         [32m[KWindow_LeftRectGray[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:180:5:[m[K [01;31m[Kerror: [m[K‘[01m[KWindowCtr_pub[m[K’ was not declared in this scope
+     [01;31m[KWindowCtr_pub[m[K = n.advertise<geometry_msgs::Point>("M3/zed/WindowCtr", 100);
+     [01;31m[K^~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

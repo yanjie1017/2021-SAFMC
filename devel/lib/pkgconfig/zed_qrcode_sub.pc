@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/pkgconfig/zed_qrcode_sub.pc

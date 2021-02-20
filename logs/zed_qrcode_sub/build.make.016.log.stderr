@@ -1,0 +1,15 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:79:76:[m[K [01;31m[Kerror: [m[Kcannot call constructor ‘[01m[Kcv::QRCodeDetector::QRCodeDetector[m[K’ directly [[01;31m[K-fpermissive[m[K]
+     cv::QRCodeDetector qrcodeDetector = cv::QRCodeDetector::QRCodeDetector([01;31m[K)[m[K;
+                                                                            [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:79:76:[m[K [01;36m[Knote: [m[Kfor a function-style cast, remove the redundant ‘[01m[K::QRCodeDetector[m[K’
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:80:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kqrcodedetector[m[K’ was not declared in this scope
+     [01;31m[Kqrcodedetector[m[K. detectAndDecodeMulti(cvImgBGR, decoded, vertices, qrcode);
+     [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:80:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KqrcodeDetector[m[K’
+     [01;36m[Kqrcodedetector[m[K. detectAndDecodeMulti(cvImgBGR, decoded, vertices, qrcode);
+     [01;36m[K^~~~~~~~~~~~~~[m[K
+     [32m[KqrcodeDetector[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

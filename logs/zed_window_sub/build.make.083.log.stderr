@@ -1,0 +1,101 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid Window_LeftRectGray_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:141:15:[m[K [01;31m[Kerror: [m[K‘[01m[Kstring[m[K’ is not a member of ‘[01m[Kstd_msgs[m[K’
+     std_msgs::[01;31m[Kstring[m[K message;
+               [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:141:15:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/usr/include/c++/7/string:39:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+   typedef basic_string<char>    [01;36m[Kstring[m[K;
+                                 [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+In file included from [01m[K/usr/include/boost/lexical_cast/detail/converter_lexical.hpp:52:0[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast/try_lexical_convert.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast.hpp:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/transport_hints.h:34[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/subscribe_options.h:33[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:42[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/boost/container/container_fwd.hpp:195:1:[m[K [01;36m[Knote: [m[K  ‘[01m[Kboost::container::string[m[K’
+ [01;36m[Kstring[m[K;
+ [01;36m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:142:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmessage[m[K’ was not declared in this scope
+     [01;31m[Kmessage[m[K.data = "window";
+     [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kstring[m[K’ is not a member of ‘[01m[Kstd_msgs[m[K’
+     WindowCtr_pub = n.advertise<std_msgs::[01;31m[Kstring[m[K>("/M3/zed/WindowCtr", 10, false);
+                                           [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:43:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/usr/include/c++/7/string:39:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+   typedef basic_string<char>    [01;36m[Kstring[m[K;
+                                 [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+In file included from [01m[K/usr/include/boost/lexical_cast/detail/converter_lexical.hpp:52:0[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast/try_lexical_convert.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast.hpp:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/transport_hints.h:34[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/subscribe_options.h:33[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:42[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/boost/container/container_fwd.hpp:195:1:[m[K [01;36m[Knote: [m[K  ‘[01m[Kboost::container::string[m[K’
+ [01;36m[Kstring[m[K;
+ [01;36m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:43:[m[K [01;31m[Kerror: [m[K‘[01m[Kstring[m[K’ is not a member of ‘[01m[Kstd_msgs[m[K’
+     WindowCtr_pub = n.advertise<std_msgs::[01;31m[Kstring[m[K>("/M3/zed/WindowCtr", 10, false);
+                                           [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:43:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/usr/include/c++/7/string:39:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+   typedef basic_string<char>    [01;36m[Kstring[m[K;
+                                 [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stringfwd.h:74:33:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::string[m[K’
+In file included from [01m[K/usr/include/boost/lexical_cast/detail/converter_lexical.hpp:52:0[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast/try_lexical_convert.hpp:42[m[K,
+                 from [01m[K/usr/include/boost/lexical_cast.hpp:32[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/transport_hints.h:34[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/subscribe_options.h:33[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/node_handle.h:42[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:45[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/boost/container/container_fwd.hpp:195:1:[m[K [01;36m[Knote: [m[K  ‘[01m[Kboost::container::string[m[K’
+ [01;36m[Kstring[m[K;
+ [01;36m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:81:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::advertise<<expression error> >(const char [18], int, bool)[m[K’
+     WindowCtr_pub = n.advertise<std_msgs::string>("/M3/zed/WindowCtr", 10, false[01;31m[K)[m[K;
+                                                                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, bool)
+     Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size, bool latch = false)
+               [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:81:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     WindowCtr_pub = n.advertise<std_msgs::string>("/M3/zed/WindowCtr", 10, false[01;31m[K)[m[K;
+                                                                                 [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, const SubscriberStatusCallback&, const SubscriberStatusCallback&, const VoidConstPtr&, bool)
+   Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size,
+             [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:175:81:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     WindowCtr_pub = n.advertise<std_msgs::string>("/M3/zed/WindowCtr", 10, false[01;31m[K)[m[K;
+                                                                                 [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

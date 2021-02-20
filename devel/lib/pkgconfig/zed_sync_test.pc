@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/lib/pkgconfig/zed_sync_test.pc

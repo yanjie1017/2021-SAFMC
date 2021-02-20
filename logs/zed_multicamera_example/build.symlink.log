@@ -1,0 +1,3 @@
+Symlinking /home/safmc/catkin_ws/devel/lib/pkgconfig/zed_multicamera_example.pc
+Symlinking /home/safmc/catkin_ws/devel/share/zed_multicamera_example/cmake/zed_multicamera_exampleConfig-version.cmake
+Symlinking /home/safmc/catkin_ws/devel/share/zed_multicamera_example/cmake/zed_multicamera_exampleConfig.cmake

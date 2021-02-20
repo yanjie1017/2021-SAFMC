@@ -1,0 +1,23 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:94:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmat[m[K’ was not declared in this scope
+     [01;31m[Kmat[m[K Contours = Mat::zeros(image.size(),CV_8uc1);
+     [01;31m[K^~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:102:13:[m[K [01;31m[Kerror: [m[K‘[01m[KContours[m[K’ was not declared in this scope
+             [01;31m[KContours[m[K.at<uchar>(P) = 255;
+             [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:102:13:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kcontours[m[K’
+             [01;36m[KContours[m[K.at<uchar>(P) = 255;
+             [01;36m[K^~~~~~~~[m[K
+             [32m[Kcontours[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:102:30:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+             Contours.at<uchar[01;31m[K>[m[K(P) = 255;
+                              [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:117:33:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+ int main(int argc, char** argv) [01;31m[K{[m[K
+                                 [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:166:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K}[m[K’ at end of input
+ [01;31m[K}[m[K
+ [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

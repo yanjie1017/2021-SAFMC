@@ -1,0 +1,4 @@
+Symlinking /home/safmc/catkin_ws/devel/lib/libZEDSyncTest.so
+Symlinking /home/safmc/catkin_ws/devel/lib/pkgconfig/zed_sync_test.pc
+Symlinking /home/safmc/catkin_ws/devel/share/zed_sync_test/cmake/zed_sync_testConfig.cmake
+Symlinking /home/safmc/catkin_ws/devel/share/zed_sync_test/cmake/zed_sync_testConfig-version.cmake

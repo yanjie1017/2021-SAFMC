@@ -1,0 +1,12 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~thermal_image_flip_h" : \b [bool] Flip Thermal Image horizontally min: False, default: False, max: True
+- \b "~thermal_image_flip_v" : \b [bool] Flip Thermal Image vertically min: False, default: False, max: True
+- \b "~thermal_image_interpolate" : \b [bool] Interpolate Thermal Image min: False, default: False, max: True
+- \b "~thermal_image_autoscale" : \b [bool] Autoscale Thermal Image min: False, default: True, max: True
+- \b "~manual_min_scaling" : \b [double] Lower scaling bound min: 0.0, default: -20.0, max: 1000.0
+- \b "~manual_max_scaling" : \b [double] Upper scaling bound min: 0.0, default: -20.0, max: 1000.0
+- \b "~Map" : \b [int] Set the sensor mode min: 0, default: 0, max: 4
+

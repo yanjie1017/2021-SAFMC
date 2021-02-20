@@ -1,0 +1,5 @@
+[31m[1mCMake Error[0m at /home/safmc/catkin_ws/src/zed_qrcode_sub/CMakeLists.txt:213 (target_link_libraries):
+  Cannot specify link libraries for target "zed_window_sub" which is not
+  built by this project.
+
+

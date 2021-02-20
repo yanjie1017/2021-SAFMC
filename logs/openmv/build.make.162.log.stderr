@@ -1,0 +1,18 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:107:26:[m[K [01;35m[Kwarning: [m[Kpointer to a function used in arithmetic [[01;35m[K-Wpointer-arith[m[K]
+     int x = (int)circle[1[01;35m[K][m[K[0];
+                          [01;35m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:107:29:[m[K [01;35m[Kwarning: [m[Kpointer to a function used in arithmetic [[01;35m[K-Wpointer-arith[m[K]
+     int x = (int)circle[1][0[01;35m[K][m[K;
+                             [01;35m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:107:29:[m[K [01;31m[Kerror: [m[Kcast from ‘[01m[Kvoid (*)(cv::InputOutputArray, cv::Point, int, const Scalar&, int, int, int) {aka void (*)(const cv::_InputOutputArray&, cv::Point_<int>, int, const cv::Scalar_<double>&, int, int, int)}[m[K’ to ‘[01m[Kint[m[K’ loses precision [[01;31m[K-fpermissive[m[K]
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:108:26:[m[K [01;35m[Kwarning: [m[Kpointer to a function used in arithmetic [[01;35m[K-Wpointer-arith[m[K]
+     int y = (int)circle[1[01;35m[K][m[K[1];
+                          [01;35m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:108:29:[m[K [01;35m[Kwarning: [m[Kpointer to a function used in arithmetic [[01;35m[K-Wpointer-arith[m[K]
+     int y = (int)circle[1][1[01;35m[K][m[K;
+                             [01;35m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:108:29:[m[K [01;31m[Kerror: [m[Kcast from ‘[01m[Kvoid (*)(cv::InputOutputArray, cv::Point, int, const Scalar&, int, int, int) {aka void (*)(const cv::_InputOutputArray&, cv::Point_<int>, int, const cv::Scalar_<double>&, int, int, int)}[m[K’ to ‘[01m[Kint[m[K’ loses precision [[01;31m[K-fpermissive[m[K]
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

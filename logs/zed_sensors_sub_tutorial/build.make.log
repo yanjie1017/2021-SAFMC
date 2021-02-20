@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target zed_sensors_sub[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/zed_sensors_sub.dir/src/zed_sensors_sub_tutorial.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/zed_sensors_sub_tutorial/lib/zed_sensors_sub_tutorial/zed_sensors_sub[0m
+[100%] Built target zed_sensors_sub

@@ -1,0 +1,17 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kvetor[m[K’ is not a member of ‘[01m[Kstd[m[K’
+     std::[01;31m[Kvetor[m[K<cv::Vec3f> circles;
+          [01;31m[K^~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:10:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kvector[m[K’
+     std::[01;36m[Kvetor[m[K<cv::Vec3f> circles;
+          [01;36m[K^~~~~[m[K
+          [32m[Kvector[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:25:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+     std::vetor<cv::Vec3f[01;31m[K>[m[K circles;
+                         [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kcircles[m[K’ was not declared in this scope
+     std::vetor<cv::Vec3f> [01;31m[Kcircles[m[K;
+                           [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

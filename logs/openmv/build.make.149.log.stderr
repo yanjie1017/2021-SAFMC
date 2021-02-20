@@ -1,0 +1,55 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:115:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs[m[K’ has not been declared
+     [01;31m[Kgeometry_msgs[m[K::Point gpos;
+     [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:116:2:[m[K [01;31m[Kerror: [m[K‘[01m[Kgpos[m[K’ was not declared in this scope
+  [01;31m[Kgpos[m[K.x = center[0];
+  [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:116:2:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kpow[m[K’
+  [01;36m[Kgpos[m[K.x = center[0];
+  [01;36m[K^~~~[m[K
+  [32m[Kpow[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:116:17:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator[][m[K’ (operand types are ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ and ‘[01m[Kint[m[K’)
+  gpos.x = center[01;31m[K[[m[K0];
+                 [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:117:17:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator[][m[K’ (operand types are ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ and ‘[01m[Kint[m[K’)
+  gpos.y = center[01;31m[K[[m[K1];
+                 [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kgpos[m[K’ was not declared in this scope
+     [01;31m[Kgpos[m[K = n.advertise<geometry_msgs::Point>("M3/openmv/Gpos", 100);
+     [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kpow[m[K’
+     [01;36m[Kgpos[m[K = n.advertise<geometry_msgs::Point>("M3/openmv/Gpos", 100);
+     [01;36m[K^~~~[m[K
+     [32m[Kpow[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:24:[m[K [01;31m[Kerror: [m[K‘[01m[Kgeometry_msgs[m[K’ was not declared in this scope
+     gpos = n.advertise<[01;31m[Kgeometry_msgs[m[K::Point>("M3/openmv/Gpos", 100);
+                        [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:14:[m[K [01;31m[Kerror: [m[Kparse error in template argument list
+     gpos = n.[01;31m[Kadvertise<geometry_msgs::Point>[m[K("M3/openmv/Gpos", 100);
+              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:67:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::advertise<<expression error> >(const char [15], int)[m[K’
+     gpos = n.advertise<geometry_msgs::Point>("M3/openmv/Gpos", 100[01;31m[K)[m[K;
+                                                                   [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:10[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, bool)
+     Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size, bool latch = false)
+               [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:249:15:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:67:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     gpos = n.advertise<geometry_msgs::Point>("M3/openmv/Gpos", 100[01;31m[K)[m[K;
+                                                                   [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:10[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Publisher ros::NodeHandle::advertise(const string&, uint32_t, const SubscriberStatusCallback&, const SubscriberStatusCallback&, const VoidConstPtr&, bool)
+   Publisher [01;36m[Kadvertise[m[K(const std::string& topic, uint32_t queue_size,
+             [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:315:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:175:67:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     gpos = n.advertise<geometry_msgs::Point>("M3/openmv/Gpos", 100[01;31m[K)[m[K;
+                                                                   [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

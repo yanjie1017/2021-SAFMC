@@ -1,0 +1,8 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:104:85:[m[K [01;31m[Kerror: [m[Kcannot call constructor ‘[01m[Kcv::Point_<int>::Point_[m[K’ directly [[01;31m[K-fpermissive[m[K]
+     cv::morphologyEx(cvImgGCny, cvImgClose, 3, kernel, cv::Point_<int>::Point_(-1,-1[01;31m[K)[m[K, 2);
+                                                                                     [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:104:85:[m[K [01;36m[Knote: [m[Kfor a function-style cast, remove the redundant ‘[01m[K::Point_[m[K’
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

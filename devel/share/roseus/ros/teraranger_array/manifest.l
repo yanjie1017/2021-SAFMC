@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/teraranger_array/share/roseus/ros/teraranger_array/manifest.l

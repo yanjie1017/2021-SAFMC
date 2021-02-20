@@ -1,0 +1,7 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:104:79:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[K(operator new(8), (<statement>, ((cv::Point*)<anonymous>)))[m[K’ from ‘[01m[Kcv::Point* {aka cv::Point_<int>*}[m[K’ to ‘[01m[Kcv::Point {aka cv::Point_<int>}[m[K’
+     cv::morphologyEx(cvImgGCny, cvImgClose, 3, kernel, new cv::Point(-1,-1), 2[01;31m[K)[m[K;
+                                                                               [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

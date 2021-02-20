@@ -1,0 +1,18 @@
+[35m[1mScanning dependencies of target barcode_reader_nodelet[0m
+[35m[1mScanning dependencies of target barcode_reader_node[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/barcode_reader_node.dir/src/barcode_reader_node.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/barcode_reader_nodelet.dir/src/barcode_reader_nodelet.cpp.o[0m
+In file included from [01m[K/home/safmc/catkin_ws/src/zbar_ros/src/barcode_reader_nodelet.cpp:32:0[m[K:
+[01m[K/home/safmc/catkin_ws/src/zbar_ros/include/zbar_ros/barcode_reader_nodelet.h:36:10:[m[K [01;31m[Kfatal error: [m[Kopencv/cv.h: No such file or directory
+ #include [01;31m[K"opencv/cv.h"[m[K
+          [01;31m[K^~~~~~~~~~~~~[m[K
+compilation terminated.
+CMakeFiles/barcode_reader_nodelet.dir/build.make:62: recipe for target 'CMakeFiles/barcode_reader_nodelet.dir/src/barcode_reader_nodelet.cpp.o' failed
+make[2]: *** [CMakeFiles/barcode_reader_nodelet.dir/src/barcode_reader_nodelet.cpp.o] Error 1
+CMakeFiles/Makefile2:131: recipe for target 'CMakeFiles/barcode_reader_nodelet.dir/all' failed
+make[1]: *** [CMakeFiles/barcode_reader_nodelet.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[ 75%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/zbar_ros/lib/zbar_ros/barcode_reader_node[0m
+[ 75%] Built target barcode_reader_node
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

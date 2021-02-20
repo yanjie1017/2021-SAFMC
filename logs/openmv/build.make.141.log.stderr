@@ -1,0 +1,11 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:124:16:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgGry[m[K’ was not declared in this scope
+     int rows = [01;31m[KcvImgGry[m[K.rows;
+                [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:124:16:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KcvImgCnt[m[K’
+     int rows = [01;36m[KcvImgGry[m[K.rows;
+                [01;36m[K^~~~~~~~[m[K
+                [32m[KcvImgCnt[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

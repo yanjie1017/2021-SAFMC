@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/openmv/share/openmv/cmake/openmvConfig-version.cmake

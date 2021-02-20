@@ -1,0 +1,6 @@
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `QRCode_LeftRectRGB_Callback(boost::shared_ptr<sensor_msgs::Image_<std::allocator<void> > const> const&)':
+zed_qrcode_sub.cpp:(.text+0xc8): undefined reference to `cv::QRCodeDetector::decodeMulti(cv::_InputArray const&, cv::_InputArray const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&, cv::_OutputArray const&) const'
+collect2: error: ld returned 1 exit status
+make[2]: *** [/home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/zed_qrcode_sub/zed_qrcode_sub] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

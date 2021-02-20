@@ -1,0 +1,10 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:106:21:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kros::Subscriber subopenmvimg[m[K’
+     ros::Subscriber [01;31m[Ksubopenmvimg[m[K  = n.subscribe("/openmv_cam/image_rect", 10,
+                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:104:21:[m[K [01;36m[Knote: [m[K‘[01m[Kros::Subscriber subopenmvimg[m[K’ previously declared here
+     ros::Subscriber [01;36m[Ksubopenmvimg[m[K  = n.subscribe("/openmv_cam/image_raw", 10,
+                     [01;36m[K^~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/zed_sensors_sub_tutorial/lib/pkgconfig/zed_sensors_sub_tutorial.pc

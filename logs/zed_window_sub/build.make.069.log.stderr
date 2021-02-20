@@ -1,0 +1,10 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:120:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kstd[m[K’
+     [01;31m[Kstd[m[K::vector<cv::Vec3f> circles;
+     [01;31m[K^~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:121:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kcircles[m[K’ was not declared in this scope
+     cv::HoughCircles(cvImgThres, [01;31m[Kcircles[m[K, 3, 2, cvImgThres.rows, 200, 100 , 10, cvImgThres.rows/2);
+                                  [01;31m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

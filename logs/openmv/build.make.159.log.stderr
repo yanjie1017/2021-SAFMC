@@ -1,0 +1,10 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:110:11:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ to ‘[01m[Kgeometry_msgs::Point_<std::allocator<void> >::_x_type {aka double}[m[K’ in assignment
+  gpos.x = [01;31m[Kcenter[m[K{0};
+           [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:111:14:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ to ‘[01m[Kgeometry_msgs::Point_<std::allocator<void> >::_y_type {aka double}[m[K’ in assignment
+     gpos.y = [01;31m[Kcenter[m[K{1};
+              [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

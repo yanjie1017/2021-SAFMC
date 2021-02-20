@@ -1,0 +1,17 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:71:5:[m[K [01;31m[Kerror: [m[Kexpected initializer before ‘[01m[Kcv[m[K’
+     [01;31m[Kcv[m[K::resize(cvImgGry, cvImgResized, cv::Size(), 0.75, 0.75)
+     [01;31m[K^~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:88:22:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgResized[m[K’ was not declared in this scope
+     cv::GaussianBlur([01;31m[KcvImgResized[m[K, cvImgGBlur, cv::Size(5,5), 3);
+                      [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:88:36:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgGBlur[m[K’ was not declared in this scope
+     cv::GaussianBlur(cvImgResized, [01;31m[KcvImgGBlur[m[K, cv::Size(5,5), 3);
+                                    [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:88:36:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KcvImgGry[m[K’
+     cv::GaussianBlur(cvImgResized, [01;36m[KcvImgGBlur[m[K, cv::Size(5,5), 3);
+                                    [01;36m[K^~~~~~~~~~[m[K
+                                    [32m[KcvImgGry[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

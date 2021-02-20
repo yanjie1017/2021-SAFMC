@@ -1,0 +1,21 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:5:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K<[m[K’ token
+     [01;31m[K<[m[Kstd::vector<cv::Point2f>> vertices;
+     [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:29:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K>[m[K’ token
+     <std::vector<cv::Point2f[01;31m[K>>[m[K vertices;
+                             [01;31m[K^~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:32:[m[K [01;31m[Kerror: [m[K‘[01m[Kvertices[m[K’ was not declared in this scope
+     <std::vector<cv::Point2f>> [01;31m[Kvertices[m[K;
+                                [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:32:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kfutimes[m[K’
+     <std::vector<cv::Point2f>> [01;36m[Kvertices[m[K;
+                                [01;36m[K^~~~~~~~[m[K
+                                [32m[Kfutimes[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:81:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass cv::QRCodeDetector[m[K’ has no member named ‘[01m[KdecodeMulti[m[K’; did you mean ‘[01m[Kdecode[m[K’?
+     qrcodeDetector.[01;31m[KdecodeMulti[m[K(cvImgBGR, vertices, decoded, qrcode);
+                    [01;31m[K^~~~~~~~~~~[m[K
+                    [32m[Kdecode[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

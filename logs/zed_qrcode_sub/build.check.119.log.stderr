@@ -1,0 +1,18 @@
+[31m[1mCMake Error[0m at /home/safmc/catkin_ws/src/zed_qrcode_sub/CMakeLists.txt:20 (find_package):
+  By not providing "FindZBar0.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "ZBar0", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "ZBar0" with any of
+  the following names:
+
+    ZBar0Config.cmake
+    zbar0-config.cmake
+
+  Add the installation prefix of "ZBar0" to CMAKE_PREFIX_PATH or set
+  "ZBar0_DIR" to a directory containing one of the above files.  If "ZBar0"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+make: *** [cmake_check_build_system] Error 1

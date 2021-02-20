@@ -1,0 +1,6 @@
+zed-ros-examples/tests/zed_sync_test
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/cmake.lock /home/safmc/catkin_ws/devel/./cmake.lock
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/lib/libZEDSyncTest.so /home/safmc/catkin_ws/devel/lib/libZEDSyncTest.so
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/lib/pkgconfig/zed_sync_test.pc /home/safmc/catkin_ws/devel/lib/pkgconfig/zed_sync_test.pc
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/share/zed_sync_test/cmake/zed_sync_testConfig.cmake /home/safmc/catkin_ws/devel/share/zed_sync_test/cmake/zed_sync_testConfig.cmake
+/home/safmc/catkin_ws/devel/.private/zed_sync_test/share/zed_sync_test/cmake/zed_sync_testConfig-version.cmake /home/safmc/catkin_ws/devel/share/zed_sync_test/cmake/zed_sync_testConfig-version.cmake

@@ -1,0 +1,1 @@
+/home/safmc/catkin_ws/devel/.private/zed_depth_sub_tutorial/lib/pkgconfig/zed_depth_sub_tutorial.pc

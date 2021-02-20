@@ -1,0 +1,3 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/zed_qrcode_sub/zed_qrcode_sub[0m
+[100%] Built target zed_qrcode_sub

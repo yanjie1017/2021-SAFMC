@@ -1,0 +1,11 @@
+\subsubsection usage Usage
+\verbatim
+<node name="teraranger_evo_64px" pkg="teraranger_evo_64px" type="teraranger_evo_64px">
+  <param name="depth_image_invert" type="bool" value="False" />
+  <param name="depth_image_interpolate" type="bool" value="False" />
+  <param name="min_distance_mm" type="double" value="100.0" />
+  <param name="max_distance_mm" type="double" value="5000.0" />
+  <param name="Mode" type="int" value="0" />
+</node>
+\endverbatim
+

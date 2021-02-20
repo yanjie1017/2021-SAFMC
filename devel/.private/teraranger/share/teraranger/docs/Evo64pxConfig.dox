@@ -1,0 +1,10 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~depth_image_invert" : \b [bool] Invert depth Image min: False, default: False, max: True
+- \b "~depth_image_interpolate" : \b [bool] Interpolate depth Image min: False, default: False, max: True
+- \b "~min_distance_mm" : \b [double] Min distance allowed min: 0.0, default: 100.0, max: 5000.0
+- \b "~max_distance_mm" : \b [double] Max distance allowed min: 0.0, default: 5000.0, max: 5000.0
+- \b "~Mode" : \b [int] Set the sensor mode min: 0, default: 0, max: 1
+

@@ -1,0 +1,7 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:75:53:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kbool[m[K’ to non-scalar type ‘[01m[Kstd::__cxx11::string {aka std::__cxx11::basic_string<char>}[m[K’ requested
+     std::string decoded_info = [01;31m[KqrcodeDetector.detect(cvImgBGR, points)[m[K;
+                                [01;31m[K~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

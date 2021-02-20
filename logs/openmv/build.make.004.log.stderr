@@ -1,0 +1,1 @@
+/usr/bin/ld: warning: libopencv_core.so.4.1, needed by /home/safmc/catkin_ws/devel/.private/cv_bridge/lib/libcv_bridge.so, may conflict with libopencv_core.so.3.2

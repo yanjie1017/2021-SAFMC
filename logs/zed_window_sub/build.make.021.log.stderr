@@ -1,0 +1,54 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:124:28:[m[K [01;31m[Kerror: [m[K‘[01m[KcvRound[m[K’ is not a member of ‘[01m[Kcv[m[K’
+       cv::Point center(cv::[01;31m[KcvRound[m[K(circles[i][0]), cv::cvRound(circles[i][1]));
+                            [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:124:28:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/core/saturate.hpp:49:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core/matx.hpp:54[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:57[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:210:15:[m[K [01;36m[Knote: [m[K  ‘[01m[KcvRound[m[K’
+ CV_INLINE int [01;36m[KcvRound[m[K( int value )
+               [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:124:56:[m[K [01;31m[Kerror: [m[K‘[01m[KcvRound[m[K’ is not a member of ‘[01m[Kcv[m[K’
+       cv::Point center(cv::cvRound(circles[i][0]), cv::[01;31m[KcvRound[m[K(circles[i][1]));
+                                                        [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:124:56:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/core/saturate.hpp:49:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core/matx.hpp:54[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:57[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:210:15:[m[K [01;36m[Knote: [m[K  ‘[01m[KcvRound[m[K’
+ CV_INLINE int [01;36m[KcvRound[m[K( int value )
+               [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:24:[m[K [01;31m[Kerror: [m[K‘[01m[KcvRound[m[K’ is not a member of ‘[01m[Kcv[m[K’
+       int radius = cv::[01;31m[KcvRound[m[K(circles[i][2]);
+                        [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:125:24:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/core/saturate.hpp:49:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core/matx.hpp:54[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:57[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:210:15:[m[K [01;36m[Knote: [m[K  ‘[01m[KcvRound[m[K’
+ CV_INLINE int [01;36m[KcvRound[m[K( int value )
+               [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:127:39:[m[K [01;31m[Kerror: [m[K‘[01m[KScalar[m[K’ was not declared in this scope
+       cv::circle(cvImgCtr, center, 3, [01;31m[KScalar[m[K(0,255,0), -1);
+                                       [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:127:39:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/core.hpp:58:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/types.hpp:669:25:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Scalar[m[K’
+ typedef Scalar_<double> [01;36m[KScalar[m[K;
+                         [01;36m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

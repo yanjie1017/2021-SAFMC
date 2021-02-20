@@ -1,0 +1,8 @@
+prefix=/home/safmc/catkin_ws/devel/.private/zed_qrcode_sub
+
+Name: zed_qrcode_sub
+Description: Description of zed_qrcode_sub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target openmv[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/openmv.dir/src/openmv.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/openmv/lib/openmv/openmv[0m
+[100%] Built target openmv

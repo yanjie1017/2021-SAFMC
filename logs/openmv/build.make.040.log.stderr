@@ -1,0 +1,24 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:74:50:[m[K [01;31m[Kerror: [m[K‘[01m[KMORPH_RECT[m[K’ was not declared in this scope
+     cv::Mat element = cv::getStructuringElement ([01;31m[KMORPH_RECT[m[K, Size(10,10));
+                                                  [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:74:50:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/opencv4/opencv2/imgproc.hpp:231:5:[m[K [01;36m[Knote: [m[K  ‘[01m[KMORPH_RECT[m[K’
+     [01;36m[KMORPH_RECT[m[K    = 0, //!< a rectangular structuring element:  \f[E_{ij}=1\f]
+     [01;36m[K^~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:74:62:[m[K [01;31m[Kerror: [m[K‘[01m[KSize[m[K’ was not declared in this scope
+     cv::Mat element = cv::getStructuringElement (MORPH_RECT, [01;31m[KSize[m[K(10,10));
+                                                              [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:74:62:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/core.hpp:58:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/types.hpp:347:16:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Size[m[K’
+ typedef Size2i [01;36m[KSize[m[K;
+                [01;36m[K^~~~[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

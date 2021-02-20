@@ -1,0 +1,4 @@
+[01m[K/home/safmc/catkin_ws/src/zed-ros-examples/tests/zed_sync_test/src/rgbd_test_sync.cpp:[m[K In member function ‘[01m[Kvoid zed_test_nodelets::ZEDTestRGBDSync::readParameters()[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed-ros-examples/tests/zed_sync_test/src/rgbd_test_sync.cpp:148:19:[m[K [01;35m[Kwarning: [m[Kignoring return value of ‘[01m[Kint system(const char*)[m[K’, declared with attribute warn_unused_result [[01;35m[K-Wunused-result[m[K]
+             [01;35m[Ksystem( cmd.c_str() )[m[K;
+             [01;35m[K~~~~~~^~~~~~~~~~~~~~~[m[K

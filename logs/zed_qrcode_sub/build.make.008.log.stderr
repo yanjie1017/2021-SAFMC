@@ -1,0 +1,11 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:73:9:[m[K [01;31m[Kerror: [m[K‘[01m[KdetectMulti[m[K’ is not a member of ‘[01m[Kcv[m[K’
+     cv::[01;31m[KdetectMulti[m[K(cvImgBGR, qrcode);
+         [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:73:9:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KseqPopMulti[m[K’
+     cv::[01;36m[KdetectMulti[m[K(cvImgBGR, qrcode);
+         [01;36m[K^~~~~~~~~~~[m[K
+         [32m[KseqPopMulti[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

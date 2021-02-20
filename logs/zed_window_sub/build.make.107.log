@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target zed_window_sub[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/zed_window_sub/lib/zed_window_sub/zed_window_sub[0m
+[100%] Built target zed_window_sub

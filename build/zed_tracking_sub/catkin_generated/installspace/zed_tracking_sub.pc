@@ -1,0 +1,8 @@
+prefix=/home/safmc/catkin_ws/install
+
+Name: zed_tracking_sub
+Description: Description of zed_tracking_sub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

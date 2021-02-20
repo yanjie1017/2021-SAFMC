@@ -1,0 +1,12 @@
+In file included from [01m[K/usr/include/opencv4/opencv2/core/cvdef.h:165:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:52[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:58:73:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K([m[K’ token
+         cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::[01;31m[KC[m[KV_8UC1);
+                                                                         [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

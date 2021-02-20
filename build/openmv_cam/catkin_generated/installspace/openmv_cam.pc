@@ -1,0 +1,8 @@
+prefix=/home/safmc/catkin_ws/install
+
+Name: openmv_cam
+Description: Description of openmv_cam
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

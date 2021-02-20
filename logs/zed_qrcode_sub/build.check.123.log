@@ -1,0 +1,38 @@
+[36m--[0m Using CATKIN_DEVEL_PREFIX: /home/safmc/catkin_ws/devel/.private/zed_qrcode_sub
+[36m--[0m Using CMAKE_PREFIX_PATH: /home/safmc/catkin_ws/devel;/opt/ros/melodic
+[36m--[0m This workspace overlays: /home/safmc/catkin_ws/devel;/opt/ros/melodic
+[36m--[0m Found PythonInterp: /usr/bin/python2 (found suitable version "2.7.17", minimum required is "2")
+[36m--[0m Using PYTHON_EXECUTABLE: /usr/bin/python2
+[36m--[0m Using Debian Python package layout
+[36m--[0m Using empy: /usr/bin/empy
+[36m--[0m Using CATKIN_ENABLE_TESTING: ON
+[36m--[0m Call enable_testing()
+[36m--[0m Using CATKIN_TEST_RESULTS_DIR: /home/safmc/catkin_ws/build/zed_qrcode_sub/test_results
+[36m--[0m Found gtest sources under '/usr/src/googletest': gtests will be built
+[36m--[0m Found gmock sources under '/usr/src/googletest': gmock will be built
+[36m--[0m Found PythonInterp: /usr/bin/python2 (found version "2.7.17")
+[36m--[0m Using Python nosetests: /usr/bin/nosetests-2.7
+[36m--[0m catkin 0.7.29
+[36m--[0m BUILD_SHARED_LIBS is on
+[31m[1mCMake Error[0m at /home/safmc/catkin_ws/src/zed_qrcode_sub/CMakeLists.txt:20 (find_package):
+  By not providing "FindZBar.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "ZBar", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "ZBar" with any of
+  the following names:
+
+    ZBarConfig.cmake
+    zbar-config.cmake
+
+  Add the installation prefix of "ZBar" to CMAKE_PREFIX_PATH or set
+  "ZBar_DIR" to a directory containing one of the above files.  If "ZBar"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+
+
+[36m--[0m Configuring incomplete, errors occurred!
+See also "/home/safmc/catkin_ws/build/zed_qrcode_sub/CMakeFiles/CMakeOutput.log".
+See also "/home/safmc/catkin_ws/build/zed_qrcode_sub/CMakeFiles/CMakeError.log".
+Makefile:714: recipe for target 'cmake_check_build_system' failed
+make: *** [cmake_check_build_system] Error 1

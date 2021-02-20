@@ -1,0 +1,33 @@
+[35m[1mScanning dependencies of target zed_qrcode_sub[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/zed_qrcode_sub/zed_qrcode_sub[0m
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Exception::what() const':
+zed_qrcode_sub.cpp:(.text._ZNK4zbar9Exception4whatEv[_ZNK4zbar9Exception4whatEv]+0x34): undefined reference to `_zbar_error_string'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::Image(unsigned int, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, void const*, unsigned long)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5ImageC2EjjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm[_ZN4zbar5ImageC5EjjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm]+0x20): undefined reference to `zbar_image_create'
+zed_qrcode_sub.cpp:(.text._ZN4zbar5ImageC2EjjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm[_ZN4zbar5ImageC5EjjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm]+0x3c): undefined reference to `zbar_image_set_userdata'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::~Image()':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5ImageD2Ev[_ZN4zbar5ImageD5Ev]+0x18): undefined reference to `zbar_image_ref'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::set_format(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5Image10set_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE[_ZN4zbar5Image10set_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE]+0xdc): undefined reference to `zbar_image_set_format'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::set_size(unsigned int, unsigned int)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5Image8set_sizeEjj[_ZN4zbar5Image8set_sizeEjj]+0x24): undefined reference to `zbar_image_set_size'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::set_data(void const*, unsigned long)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5Image8set_dataEPKvm[_ZN4zbar5Image8set_dataEPKvm]+0x34): undefined reference to `zbar_image_set_data'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::Image::_cleanup(zbar::zbar_image_s*)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar5Image8_cleanupEPNS_12zbar_image_sE[_ZN4zbar5Image8_cleanupEPNS_12zbar_image_sE]+0x40): undefined reference to `zbar_image_get_userdata'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::ImageScanner::ImageScanner(zbar::zbar_image_scanner_s*)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar12ImageScannerC2EPNS_20zbar_image_scanner_sE[_ZN4zbar12ImageScannerC5EPNS_20zbar_image_scanner_sE]+0x2c): undefined reference to `zbar_image_scanner_create'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::ImageScanner::~ImageScanner()':
+zed_qrcode_sub.cpp:(.text._ZN4zbar12ImageScannerD2Ev[_ZN4zbar12ImageScannerD5Ev]+0x14): undefined reference to `zbar_image_scanner_destroy'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::ImageScanner::set_config(zbar::zbar_symbol_type_e, zbar::zbar_config_e, int)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar12ImageScanner10set_configENS_18zbar_symbol_type_eENS_13zbar_config_eEi[_ZN4zbar12ImageScanner10set_configENS_18zbar_symbol_type_eENS_13zbar_config_eEi]+0x2c): undefined reference to `zbar_image_scanner_set_config'
+CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o: In function `zbar::ImageScanner::scan(zbar::Image&)':
+zed_qrcode_sub.cpp:(.text._ZN4zbar12ImageScanner4scanERNS_5ImageE[_ZN4zbar12ImageScanner4scanERNS_5ImageE]+0x2c): undefined reference to `zbar_scan_image'
+collect2: error: ld returned 1 exit status
+CMakeFiles/zed_qrcode_sub.dir/build.make:131: recipe for target '/home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/zed_qrcode_sub/zed_qrcode_sub' failed
+make[2]: *** [/home/safmc/catkin_ws/devel/.private/zed_qrcode_sub/lib/zed_qrcode_sub/zed_qrcode_sub] Error 1
+CMakeFiles/Makefile2:803: recipe for target 'CMakeFiles/zed_qrcode_sub.dir/all' failed
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

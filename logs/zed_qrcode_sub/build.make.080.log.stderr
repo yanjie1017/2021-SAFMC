@@ -1,0 +1,17 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:72:30:[m[K [01;31m[Kerror: [m[Ka function-definition is not allowed here before ‘[01m[K{[m[K’ token
+     void SaveImg(cv::Mat Img)[01;31m[K{[m[K
+                              [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:100:70:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompare[m[K’ was not declared in this scope
+             if (std::none_of(decodedList.begin(), decodedList.end(), [01;31m[Kcompare[m[K(decoded))){
+                                                                      [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:100:70:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core.hpp:1411:19:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::compare[m[K’
+ CV_EXPORTS_W void [01;36m[Kcompare[m[K(InputArray src1, InputArray src2, OutputArray dst, int cmpop);
+                   [01;36m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

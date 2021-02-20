@@ -1,0 +1,13 @@
+\subsubsection usage Usage
+\verbatim
+<node name="teraranger_evo_thermal" pkg="teraranger" type="teraranger_evo_thermal">
+  <param name="thermal_image_flip_h" type="bool" value="False" />
+  <param name="thermal_image_flip_v" type="bool" value="False" />
+  <param name="thermal_image_interpolate" type="bool" value="False" />
+  <param name="thermal_image_autoscale" type="bool" value="True" />
+  <param name="manual_min_scaling" type="double" value="-20.0" />
+  <param name="manual_max_scaling" type="double" value="-20.0" />
+  <param name="Map" type="int" value="0" />
+</node>
+\endverbatim
+

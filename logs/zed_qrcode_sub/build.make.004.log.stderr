@@ -1,0 +1,27 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:72:40:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     std::vector<std::vector<cv::Point> [01;31m[Kqrcode[m[K;
+                                        [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:72:40:[m[K [01;31m[Kerror: [m[Ktemplate argument 2 is invalid
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:73:42:[m[K [01;31m[Kerror: [m[K‘[01m[Kqrcode[m[K’ was not declared in this scope
+     cv::QRCodeDetector::detect(cvImgBGR, [01;31m[Kqrcode[m[K);
+                                          [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:9:[m[K [01;31m[Kerror: [m[Kcontinue statement not within a loop
+         [01;31m[Kcontinue[m[K;
+         [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:81:20:[m[K [01;31m[Kerror: [m[K‘[01m[Kto_string[m[K’ was not declared in this scope
+         imgCount = [01;31m[Kto_string[m[K(count);
+                    [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:81:20:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/usr/include/c++/7/string:52:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:28[m[K:
+[01m[K/usr/include/c++/7/bits/basic_string.h:6466:3:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::to_string[m[K’
+   [01;36m[Kto_string[m[K(long double __val)
+   [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/basic_string.h:6466:3:[m[K [01;36m[Knote: [m[K  ‘[01m[Kstd::__cxx11::to_string[m[K’
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

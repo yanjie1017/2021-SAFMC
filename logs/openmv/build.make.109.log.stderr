@@ -1,0 +1,21 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:113:41:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::push_back(int&)[m[K’
+  temp_contours.push_back(biggest_contour[01;31m[K)[m[K;
+                                         [01;31m[K^[m[K
+In file included from [01m[K/usr/include/c++/7/vector:64:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core/types.hpp:53[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:58[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/c++/7/bits/stl_vector.h:939:7:[m[K [01;36m[Knote: [m[Kcandidate: void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::vector<cv::Point_<int> >; _Alloc = std::allocator<std::vector<cv::Point_<int> > >; std::vector<_Tp, _Alloc>::value_type = std::vector<cv::Point_<int> >]
+       [01;36m[Kpush_back[m[K(const value_type& __x)
+       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_vector.h:939:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kconst value_type& {aka const std::vector<cv::Point_<int> >&}[m[K’
+[01m[K/usr/include/c++/7/bits/stl_vector.h:953:7:[m[K [01;36m[Knote: [m[Kcandidate: void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::vector<cv::Point_<int> >; _Alloc = std::allocator<std::vector<cv::Point_<int> > >; std::vector<_Tp, _Alloc>::value_type = std::vector<cv::Point_<int> >]
+       [01;36m[Kpush_back[m[K(value_type&& __x)
+       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/7/bits/stl_vector.h:953:7:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kint[m[K’ to ‘[01m[Kstd::vector<std::vector<cv::Point_<int> > >::value_type&& {aka std::vector<cv::Point_<int> >&&}[m[K’
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

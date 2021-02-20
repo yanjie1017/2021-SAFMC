@@ -1,0 +1,12 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectGray_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:97:41:[m[K [01;31m[Kerror: [m[Kinvalid conversion from ‘[01m[Kint[m[K’ to ‘[01m[Kzbar::zbar_config_t {aka zbar::zbar_config_e}[m[K’ [[01;31m[K-fpermissive[m[K]
+     scanner.set_config(ZBAR_QRCODE, 0, 1[01;31m[K)[m[K; // scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE, 1);
+                                         [01;31m[K^[m[K
+In file included from [01m[K/usr/include/zbar.h:1306:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:44[m[K:
+[01m[K/usr/include/zbar/ImageScanner.h:71:9:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kint zbar::ImageScanner::set_config(zbar::zbar_symbol_type_t, zbar::zbar_config_t, int)[m[K’
+     int [01;36m[Kset_config[m[K (zbar_symbol_type_t symbology,
+         [01;36m[K^~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

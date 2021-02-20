@@ -1,0 +1,31 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:104:33:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KcvRound(cv::Point2f&)[m[K’
+     cv::Point ctr(cvRound(center[01;31m[K)[m[K);
+                                 [01;31m[K^[m[K
+In file included from [01m[K/usr/include/opencv4/opencv2/core/saturate.hpp:49:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core/matx.hpp:54[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/core.hpp:57[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:97:1:[m[K [01;36m[Knote: [m[Kcandidate: int cvRound(double)
+ [01;36m[KcvRound[m[K( double value )
+ [01;36m[K^~~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:97:1:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ to ‘[01m[Kdouble[m[K’
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:182:15:[m[K [01;36m[Knote: [m[Kcandidate: int cvRound(float)
+ CV_INLINE int [01;36m[KcvRound[m[K(float value)
+               [01;36m[K^~~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:182:15:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ to ‘[01m[Kfloat[m[K’
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:210:15:[m[K [01;36m[Knote: [m[Kcandidate: int cvRound(int)
+ CV_INLINE int [01;36m[KcvRound[m[K( int value )
+               [01;36m[K^~~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/core/fast_math.hpp:210:15:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Point2f {aka cv::Point_<float>}[m[K’ to ‘[01m[Kint[m[K’
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:114:14:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator[][m[K’ (operand types are ‘[01m[Kcv::Point {aka cv::Point_<int>}[m[K’ and ‘[01m[Kint[m[K’)
+  gpos.x = ctr[01;31m[K[[m[K0];
+              [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:115:17:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator[][m[K’ (operand types are ‘[01m[Kcv::Point {aka cv::Point_<int>}[m[K’ and ‘[01m[Kint[m[K’)
+     gpos.y = ctr[01;31m[K[[m[K1];
+                 [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

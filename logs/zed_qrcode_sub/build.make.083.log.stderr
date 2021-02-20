@@ -1,0 +1,55 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In lambda function:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:105:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecoded[m[K’ is not captured
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n.compare([01;31m[Kdecoded[m[K)}){
+                                                                                                         [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:71:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+             if (std::none_of(decodedList.begin(), decodedList.end(), [[01;36m[K][m[K(std::string n){return n.compare(decoded)}){
+                                                                       [01;36m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:91:17:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::__cxx11::string decoded[m[K’ declared here
+     std::string [01;36m[Kdecoded[m[K;
+                 [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:105:[m[K [01;31m[Kerror: [m[K‘[01m[Kdecoded[m[K’ is not captured
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n.compare([01;31m[Kdecoded[m[K)}){
+                                                                                                         [01;31m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:71:[m[K [01;36m[Knote: [m[Kthe lambda has no capture-default
+             if (std::none_of(decodedList.begin(), decodedList.end(), [[01;36m[K][m[K(std::string n){return n.compare(decoded)}){
+                                                                       [01;36m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:91:17:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::__cxx11::string decoded[m[K’ declared here
+     std::string [01;36m[Kdecoded[m[K;
+                 [01;36m[K^~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:113:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n.compare(decoded)[01;31m[K}[m[K){
+                                                                                                                 [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectGray_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:115:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K{[m[K’ token
+             if (std::none_of(decodedList.begin(), decodedList.end(), [](std::string n){return n.compare(decoded)})[01;31m[K{[m[K
+                                                                                                                   [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:115:9:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K}[m[K’ token
+         [01;31m[K}[m[K else {
+         [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:121:33:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgBGR[m[K’ was not declared in this scope
+     cv::imshow(OPENCV_WINDOW_1, [01;31m[KcvImgBGR[m[K);
+                                 [01;31m[K^~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:121:33:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KcvImgGry[m[K’
+     cv::imshow(OPENCV_WINDOW_1, [01;36m[KcvImgBGR[m[K);
+                                 [01;36m[K^~~~~~~~[m[K
+                                 [32m[KcvImgGry[m[K
+In file included from [01m[K/usr/include/c++/7/bits/stl_algobase.h:71:0[m[K,
+                 from [01m[K/usr/include/c++/7/bits/char_traits.h:39[m[K,
+                 from [01m[K/usr/include/c++/7/string:40[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/platform.h:38[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:53[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:28[m[K:
+/usr/include/c++/7/bits/predefined_ops.h: In instantiation of ‘[01m[Kbool __gnu_cxx::__ops::_Iter_pred<_Predicate>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >; _Predicate = QRCode_LeftRectGray_Callback(const ConstPtr&)::<lambda(std::__cxx11::string)>][m[K’:
+[01m[K/usr/include/c++/7/bits/stl_algo.h:120:14:[m[K   required from ‘[01m[K_RandomAccessIterator std::__find_if(_RandomAccessIterator, _RandomAccessIterator, _Predicate, std::random_access_iterator_tag) [with _RandomAccessIterator = __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >; _Predicate = __gnu_cxx::__ops::_Iter_pred<QRCode_LeftRectGray_Callback(const ConstPtr&)::<lambda(std::__cxx11::string)> >][m[K’
+[01m[K/usr/include/c++/7/bits/stl_algo.h:161:23:[m[K   required from ‘[01m[K_Iterator std::__find_if(_Iterator, _Iterator, _Predicate) [with _Iterator = __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >; _Predicate = __gnu_cxx::__ops::_Iter_pred<QRCode_LeftRectGray_Callback(const ConstPtr&)::<lambda(std::__cxx11::string)> >][m[K’
+[01m[K/usr/include/c++/7/bits/stl_algo.h:3932:28:[m[K   required from ‘[01m[K_IIter std::find_if(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >; _Predicate = QRCode_LeftRectGray_Callback(const ConstPtr&)::<lambda(std::__cxx11::string)>][m[K’
+[01m[K/usr/include/c++/7/bits/stl_algo.h:526:47:[m[K   required from ‘[01m[Kbool std::none_of(_IIter, _IIter, _Predicate) [with _IIter = __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char>*, std::vector<std::__cxx11::basic_string<char> > >; _Predicate = QRCode_LeftRectGray_Callback(const ConstPtr&)::<lambda(std::__cxx11::string)>][m[K’
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:108:114:[m[K   required from here
+[01m[K/usr/include/c++/7/bits/predefined_ops.h:283:11:[m[K [01;31m[Kerror: [m[Kvoid value not ignored as it ought to be
+  { return [01;31m[Kbool(_M_pred(*__it))[m[K; }
+           [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

@@ -1,0 +1,10 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:104:68:[m[K [01;31m[Kerror: [m[K‘[01m[K_Tp[m[K’ was not declared in this scope
+     cv::morphologyEx(cvImgGCny, cvImgClose, 3, kernel, cv::Point_< [01;31m[K_Tp[m[K >(-1,-1), 2);
+                                                                    [01;31m[K^~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:104:72:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+     cv::morphologyEx(cvImgGCny, cvImgClose, 3, kernel, cv::Point_< _Tp [01;31m[K>[m[K(-1,-1), 2);
+                                                                        [01;31m[K^[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

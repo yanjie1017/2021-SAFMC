@@ -1,0 +1,4 @@
+[35m[1mScanning dependencies of target depth[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/depth.dir/src/zed_depth_sub_tutorial.cpp.o[0m
+[100%] [32m[1mLinking CXX executable /home/safmc/catkin_ws/devel/.private/depth/lib/depth/depth[0m
+[100%] Built target depth

@@ -1,0 +1,12 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:75:78:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcv::QRCodeDetector::detect(cv::Mat&, std::vector<cv::Point_<float> >&, cv::Mat&)[m[K’
+     std::string decoded_info = qrcodeDetector.detect(cvImgBGR, points, qrcode[01;31m[K)[m[K;
+                                                                              [01;31m[K^[m[K
+In file included from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:34:0[m[K:
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:691:18:[m[K [01;36m[Knote: [m[Kcandidate: bool cv::QRCodeDetector::detect(cv::InputArray, cv::OutputArray) const
+     CV_WRAP bool [01;36m[Kdetect[m[K(InputArray img, OutputArray points) const;
+                  [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:691:18:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 3 provided
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

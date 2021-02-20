@@ -1,0 +1,11 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:75:64:[m[K [01;31m[Kerror: [m[K‘[01m[Kpoint[m[K’ was not declared in this scope
+     std::string decoded_info = qrcodeDetector.decode(cvImgBGR, [01;31m[Kpoint[m[K, qrcode);
+                                                                [01;31m[K^~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:75:64:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kpoints[m[K’
+     std::string decoded_info = qrcodeDetector.decode(cvImgBGR, [01;36m[Kpoint[m[K, qrcode);
+                                                                [01;36m[K^~~~~[m[K
+                                                                [32m[Kpoints[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

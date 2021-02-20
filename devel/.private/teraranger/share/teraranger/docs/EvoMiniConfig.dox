@@ -1,0 +1,7 @@
+\subsubsection parameters ROS parameters
+
+Reads and maintains the following parameters on the ROS server
+
+- \b "~Pixel_mode" : \b [int] Set the pixel mode min: 0, default: 0, max: 2
+- \b "~Range_mode" : \b [int] Set the ranging mode min: 0, default: 0, max: 1
+

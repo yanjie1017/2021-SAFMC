@@ -1,0 +1,4 @@
+Symlinking /home/safmc/catkin_ws/devel/lib/pkgconfig/teraranger_subs.pc
+Symlinking /home/safmc/catkin_ws/devel/lib/teraranger_subs/teraranger_listener
+Symlinking /home/safmc/catkin_ws/devel/share/teraranger_subs/cmake/teraranger_subsConfig-version.cmake
+Symlinking /home/safmc/catkin_ws/devel/share/teraranger_subs/cmake/teraranger_subsConfig.cmake

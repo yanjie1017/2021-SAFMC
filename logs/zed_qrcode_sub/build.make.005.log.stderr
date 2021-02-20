@@ -1,0 +1,10 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:73:48:[m[K [01;31m[Kerror: [m[Kcannot call member function ‘[01m[Kbool cv::QRCodeDetector::detect(cv::InputArray, cv::OutputArray) const[m[K’ without object
+     cv::QRCodeDetector::detect(cvImgBGR, qrcode[01;31m[K)[m[K;
+                                                [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:77:9:[m[K [01;31m[Kerror: [m[Kcontinue statement not within a loop
+         [01;31m[Kcontinue[m[K;
+         [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

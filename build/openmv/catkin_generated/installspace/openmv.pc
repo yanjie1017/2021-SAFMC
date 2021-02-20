@@ -1,0 +1,8 @@
+prefix=/home/safmc/catkin_ws/install
+
+Name: openmv
+Description: Description of openmv
+Version: 0.0.1
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/safmc/catkin_ws/install
+
+Name: depth
+Description: Description of depth
+Version: 3.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

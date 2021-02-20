@@ -1,0 +1,13 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:71:44:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kcv::InputArray {aka const cv::_InputArray&}[m[K’ from expression of type ‘[01m[Kint [3][m[K’
+     cv::inRange(cvImgHSV,Lower,Upper,cvMask[01;31m[K)[m[K;
+                                            [01;31m[K^[m[K
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/opencv4/opencv2/core.hpp:1382:19:[m[K [01;36m[Knote: [m[Kin passing argument 2 of ‘[01m[Kvoid cv::inRange(cv::InputArray, cv::InputArray, cv::InputArray, cv::OutputArray)[m[K’
+ CV_EXPORTS_W void [01;36m[KinRange[m[K(InputArray src, InputArray lowerb,
+                   [01;36m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

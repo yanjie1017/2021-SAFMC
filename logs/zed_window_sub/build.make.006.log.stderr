@@ -1,0 +1,72 @@
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid on_trackbar(int, void*)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:49:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kalpha[m[K’ was not declared in this scope
+    [01;31m[Kalpha[m[K = (double) alpha_slider/alpha_slider_max ;
+    [01;31m[K^~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:49:4:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kisalpha[m[K’
+    [01;36m[Kalpha[m[K = (double) alpha_slider/alpha_slider_max ;
+    [01;36m[K^~~~~[m[K
+    [32m[Kisalpha[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:49:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kalpha_slider[m[K’ was not declared in this scope
+    alpha = (double) [01;31m[Kalpha_slider[m[K/alpha_slider_max ;
+                     [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:49:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kalpha_slider_max[m[K’ was not declared in this scope
+    alpha = (double) alpha_slider/[01;31m[Kalpha_slider_max[m[K ;
+                                  [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:50:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kbeta[m[K’ was not declared in this scope
+    [01;31m[Kbeta[m[K = ( 1.0 - alpha );
+    [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:50:4:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/boost/math/special_functions/round.hpp:15:0[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/time.h:58[m[K,
+                 from [01m[K/opt/ros/melodic/include/ros/ros.h:38[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:28[m[K:
+[01m[K/usr/include/boost/math/special_functions/math_fwd.hpp:52:10:[m[K [01;36m[Knote: [m[K  ‘[01m[Kboost::math::beta[m[K’
+          [01;36m[Kbeta[m[K(RT1 a, RT2 b, RT3 x, const Policy& pol); // Beta function (3 arguments).
+          [01;36m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:17:[m[K [01;31m[Kerror: [m[K‘[01m[Ksrc1[m[K’ was not declared in this scope
+    addWeighted( [01;31m[Ksrc1[m[K, alpha, src2, beta, 0.0, dst);
+                 [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:17:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kstrchr[m[K’
+    addWeighted( [01;36m[Ksrc1[m[K, alpha, src2, beta, 0.0, dst);
+                 [01;36m[K^~~~[m[K
+                 [32m[Kstrchr[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:30:[m[K [01;31m[Kerror: [m[K‘[01m[Ksrc2[m[K’ was not declared in this scope
+    addWeighted( src1, alpha, [01;31m[Ksrc2[m[K, beta, 0.0, dst);
+                              [01;31m[K^~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:30:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kstrchr[m[K’
+    addWeighted( src1, alpha, [01;36m[Ksrc2[m[K, beta, 0.0, dst);
+                              [01;36m[K^~~~[m[K
+                              [32m[Kstrchr[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:47:[m[K [01;31m[Kerror: [m[K‘[01m[Kdst[m[K’ was not declared in this scope
+    addWeighted( src1, alpha, src2, beta, 0.0, [01;31m[Kdst[m[K);
+                                               [01;31m[K^~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:4:[m[K [01;31m[Kerror: [m[K‘[01m[KaddWeighted[m[K’ was not declared in this scope
+    [01;31m[KaddWeighted[m[K( src1, alpha, src2, beta, 0.0, dst);
+    [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:51:4:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core.hpp:492:19:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::addWeighted[m[K’
+ CV_EXPORTS_W void [01;36m[KaddWeighted[m[K(InputArray src1, double alpha, InputArray src2,
+                   [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:52:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kimshow[m[K’ was not declared in this scope
+    [01;31m[Kimshow[m[K( "Linear Blend", dst );
+    [01;31m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:52:4:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/highgui/highgui.hpp:48:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:32[m[K:
+[01m[K/usr/include/opencv4/opencv2/highgui.hpp:624:17:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::imshow[m[K’
+ CV_EXPORTS void [01;36m[Kimshow[m[K(const String& winname, const ogl::Texture2D& tex);
+                 [01;36m[K^~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:[m[K In function ‘[01m[Kvoid imageLeftRectifiedCallback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:107:22:[m[K [01;31m[Kerror: [m[K‘[01m[KcvImgMCny[m[K’ was not declared in this scope
+     cv::findContours([01;31m[KcvImgMCny[m[K, contours, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
+                      [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_window_sub/src/zed_window_sub.cpp:107:22:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[KcvImgGCny[m[K’
+     cv::findContours([01;36m[KcvImgMCny[m[K, contours, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE);
+                      [01;36m[K^~~~~~~~~[m[K
+                      [32m[KcvImgGCny[m[K
+make[2]: *** [CMakeFiles/zed_window_sub.dir/src/zed_window_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_window_sub.dir/all] Error 2
+make: *** [all] Error 2

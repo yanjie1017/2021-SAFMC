@@ -1,0 +1,16 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:80:76:[m[K [01;31m[Kerror: [m[Kcannot call constructor ‘[01m[Kcv::QRCodeDetector::QRCodeDetector[m[K’ directly [[01;31m[K-fpermissive[m[K]
+     cv::QRCodeDetector qrcodeDetector = cv::QRCodeDetector::QRCodeDetector([01;31m[K)[m[K;
+                                                                            [01;31m[K^[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:80:76:[m[K [01;36m[Knote: [m[Kfor a function-style cast, remove the redundant ‘[01m[K::QRCodeDetector[m[K’
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:81:60:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kcv::QRCodeDetector::decode(cv::Mat&, std::vector<cv::Point_<float> >&, std::vector<std::__cxx11::basic_string<char> >&, std::vector<cv::Mat>&)[m[K’
+     qrcodeDetector.decode(cvImgBGR, points, decoded, qrcode[01;31m[K)[m[K;
+                                                            [01;31m[K^[m[K
+In file included from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:34:0[m[K:
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:700:25:[m[K [01;36m[Knote: [m[Kcandidate: std::__cxx11::string cv::QRCodeDetector::decode(cv::InputArray, cv::InputArray, cv::OutputArray)
+     CV_WRAP std::string [01;36m[Kdecode[m[K(InputArray img, InputArray points, OutputArray straight_qrcode = noArray());
+                         [01;36m[K^~~~~~[m[K
+[01m[K/usr/include/opencv4/opencv2/objdetect.hpp:700:25:[m[K [01;36m[Knote: [m[K  candidate expects 3 arguments, 4 provided
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

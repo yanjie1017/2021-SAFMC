@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/safmc/catkin_ws/devel/.private/zed_display_rviz/setup.sh

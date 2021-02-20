@@ -1,0 +1,29 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectGray_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:96:24:[m[K [01;31m[Kerror: [m[K‘[01m[KZBAR_QRCODE[m[K’ was not declared in this scope
+     scanner.set_config([01;31m[KZBAR_QRCODE[m[K, ZBAR_CFG_ENABLE, 1);
+                        [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:96:24:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:44:0[m[K:
+[01m[K/usr/include/zbar.h:98:5:[m[K [01;36m[Knote: [m[K  ‘[01m[KZBAR_QRCODE[m[K’
+     [01;36m[KZBAR_QRCODE[m[K      =     64,  /**< QR Code. @since 0.10 */
+     [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:96:37:[m[K [01;31m[Kerror: [m[K‘[01m[KZBAR_CFG_ENABLE[m[K’ was not declared in this scope
+     scanner.set_config(ZBAR_QRCODE, [01;31m[KZBAR_CFG_ENABLE[m[K, 1);
+                                     [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:96:37:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:44:0[m[K:
+[01m[K/usr/include/zbar.h:127:5:[m[K [01;36m[Knote: [m[K  ‘[01m[KZBAR_CFG_ENABLE[m[K’
+     [01;36m[KZBAR_CFG_ENABLE[m[K = 0,        /**< enable symbology/feature */
+     [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:98:38:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kzbar::ImageScanner::scan(cv::Mat&)[m[K’
+     int n = scanner.scan(cvImgResized[01;31m[K)[m[K;
+                                      [01;31m[K^[m[K
+In file included from [01m[K/usr/include/zbar.h:1306:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:44[m[K:
+[01m[K/usr/include/zbar/ImageScanner.h:111:9:[m[K [01;36m[Knote: [m[Kcandidate: int zbar::ImageScanner::scan(zbar::Image&)
+     int [01;36m[Kscan[m[K (Image& image)
+         [01;36m[K^~~~[m[K
+[01m[K/usr/include/zbar/ImageScanner.h:111:9:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kcv::Mat[m[K’ to ‘[01m[Kzbar::Image&[m[K’
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2

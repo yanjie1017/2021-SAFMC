@@ -1,0 +1,13 @@
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:[m[K In function ‘[01m[Kvoid openmvimg(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:56:57:[m[K [01;31m[Kerror: [m[K‘[01m[KCOLOR_BGR2HSV[m[K’ was not declared in this scope
+     cv::Mat cvImgHSV = cv::cvtColor(cvImgGry, cvImgHSV, [01;31m[KCOLOR_BGR2HSV[m[K);
+                                                         [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:56:57:[m[K [01;36m[Knote: [m[Ksuggested alternative:
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48:0[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/openmv/src/openmv.cpp:3[m[K:
+[01m[K/usr/include/opencv4/opencv2/imgproc.hpp:583:5:[m[K [01;36m[Knote: [m[K  ‘[01m[KCOLOR_BGR2HSV[m[K’
+     [01;36m[KCOLOR_BGR2HSV[m[K      = 40, //!< convert RGB/BGR to HSV (hue saturation value), @ref color_convert_rgb_hsv "color conversions"
+     [01;36m[K^~~~~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/openmv.dir/src/openmv.cpp.o] Error 1
+make[1]: *** [CMakeFiles/openmv.dir/all] Error 2
+make: *** [all] Error 2

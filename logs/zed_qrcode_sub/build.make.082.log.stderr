@@ -1,0 +1,13 @@
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:[m[K In function ‘[01m[Kvoid QRCode_LeftRectRGB_Callback(const ConstPtr&)[m[K’:
+[01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:102:89:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kcv::InputArray {aka const cv::_InputArray&}[m[K’ from expression of type ‘[01m[Kstd::__cxx11::string {aka std::__cxx11::basic_string<char>}[m[K’
+             if (std::none_of(decodedList.begin(), decodedList.end(), cv::compare(decoded[01;31m[K)[m[K)){
+                                                                                         [01;31m[K^[m[K
+In file included from [01m[K/usr/include/opencv4/opencv2/imgproc.hpp:46:0[m[K,
+                 from [01m[K/usr/include/opencv4/opencv2/imgproc/imgproc.hpp:48[m[K,
+                 from [01m[K/home/safmc/catkin_ws/src/zed_qrcode_sub/src/zed_qrcode_sub.cpp:31[m[K:
+[01m[K/usr/include/opencv4/opencv2/core.hpp:1411:19:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kvoid cv::compare(cv::InputArray, cv::InputArray, cv::OutputArray, int)[m[K’
+ CV_EXPORTS_W void [01;36m[Kcompare[m[K(InputArray src1, InputArray src2, OutputArray dst, int cmpop);
+                   [01;36m[K^~~~~~~[m[K
+make[2]: *** [CMakeFiles/zed_qrcode_sub.dir/src/zed_qrcode_sub.cpp.o] Error 1
+make[1]: *** [CMakeFiles/zed_qrcode_sub.dir/all] Error 2
+make: *** [all] Error 2
