@@ -1,5 +1,3 @@
-///////////////////////////////////////////////////////////////////////////
- // Include opencv2
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/core/types.hpp>
@@ -19,25 +17,21 @@
 
 using namespace std;
 using namespace cv;
-std::vector<cv::Point> findBiggestContour(cv::Mat bimg);
 
+std::vector<int> find3BiggestContour(std::vector<std::vector<cv::Point>> contours);
 
+ros::Publisher Gpos_max;
+ros::Publisher Gpos_2nd;
+ros::Publisher Gpos_3rd;
 
-
-static const std::string OPENCV_WINDOW_1 = "Image window 1";
-
-ros::Publisher Gpos_pub;
-
-
-/**
- * Subscriber callback
- */
 
 void openmvimg(const sensor_msgs::Image::ConstPtr& msg) {
 
 //Set Threshold
 cv::Scalar Lower = cv::Scalar (35,43,46);
 cv::Scalar Upper = cv::Scalar(77,255,255);
+//cv::Scalar Lower = cv::Scalar (65,1416,71);
+//cv::Scalar Upper = cv::Scalar (82,224,153);
 
 // Convert ROS image to OpenCV image
     cv_bridge::CvImageConstPtr cv_img;
@@ -79,73 +73,125 @@ cv::Scalar Upper = cv::Scalar(77,255,255);
     cv::erode(cvMask,cvImgErode,element);
     cv::dilate(cvImgErode, cvImgDilate , element);
 
-/*
-//Show MAX contour
-    Mat cvImgCnt=Mat::zeros(cvImgDilate.size(),CV_8UC1);  
-    std::vector< std::vector< cv::Point> > contours;
-	std::vector< cv::Point>  biggest_contour;
-	std::vector< std::vector< cv::Point> > temp_contours;
+//*****************Find Biggest Contour************************************
 
-	biggest_contour = findBiggestContour(cvImgDilate);
-	temp_contours.push_back(biggest_contour);
+    std::vector<std::vector<cv::Point>> contours;
+	std::vector<cv::Vec4i> hierarchy;
+    cv::findContours(cvImgDilate, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
 
-    drawContours(cvImgCnt, temp_contours,0,Scalar(255),3 );
-*/
+//** Check if contours = 0************
+
+    if(contours.size() != 0 ){
 
 //**********************Min Enclosing circle**************
-    Mat cvcnt = Mat::zeros(cvImgDilate.size(),CV_8UC1);
-    Point2f center; 
-    float radius;
-	minEnclosingCircle(findBiggestContour(cvImgDilate),center,radius);
-    circle(cvcnt,center,radius,Scalar(255),3);
+    std::vector<int> index_list = find3BiggestContour(contours);
 
+    Mat cvcnt1 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
+    Point2f center1; 
+    float radius1;
+	minEnclosingCircle(contours[index_list[0]],center1,radius1);
+    circle(cvcnt1,center1,radius1,Scalar(255),3);
+    //ROS_INFO_STREAM("Index_1 " << index_list[0]);
+
+    //Mat cvcnt2 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
+    Point2f center2; 
+    float radius2;
+	minEnclosingCircle(contours[index_list[1]],center2,radius2);
+	circle(cvcnt1,center2,radius2,Scalar(255),3);
+    //ROS_INFO_STREAM("Index_2 " << index_list[1]);
+
+    //Mat cvcnt3 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
+    Point2f center3; 
+    float radius3; 
+	minEnclosingCircle(contours[index_list[2]],center3,radius3);
+    circle(cvcnt1,center3,radius3,Scalar(255),3);
+    //ROS_INFO_STREAM("Index_3 " << index_list[2]);
 
 //Ouput
 //ROS_INFO_STREAM("Center x,y=" << center);
 
 //********************Publish Center Point*************** 
     
-    geometry_msgs::Point gpos;
-	gpos.x = center.x;
-    gpos.y = center.y;
-    Gpos_pub.publish(gpos);
+    geometry_msgs::Point gpos_max;
+	gpos_max.x = center1.x;
+    gpos_max.y = center1.y;
+    Gpos_max.publish(gpos_max);
 
+    geometry_msgs::Point gpos_2nd;
+	gpos_2nd.x = center2.x;
+    gpos_2nd.y = center2.y;
+    Gpos_2nd.publish(gpos_2nd);
 
-//********************imshow*****************************
-    //imshow(OPENCV_WINDOW_1 ,cvImgCnt);
-    imshow("w2",cvcnt);
-    //imshow("w3",cvImgDilate);
-    cv::waitKey(3); 
+    geometry_msgs::Point gpos_3rd;
+	gpos_3rd.x = center3.x;
+    gpos_3rd.y = center3.y;
+    Gpos_3rd.publish(gpos_3rd);
+
+    //********************imshow*****************************
+ 
+    imshow("Target",cvcnt1);
+    imshow("BW",cvImgDilate);
+    
+    
+    }
+    imshow("RAW",cvImg);
+    cv::waitKey(3);  
 //*******************************************************
 }
 
-//*********************Find Biggest COntour*************************************************************
-std::vector<cv::Point> findBiggestContour(cv::Mat bimg)
-{
-	std::vector<std::vector<cv::Point>> contours;
-	std::vector<cv::Vec4i> hierarchy;
- 
-	int largest_area = 0;
-	int largest_contour_index = 0;
- 
-	cv::findContours(bimg, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+//*****************************Find 3rd Biggestlargest2_contour_index = j; 
+std::vector<int> find3BiggestContour(std::vector<std::vector<cv::Point>> contours)
+{   
+    std::vector<int> index_list;
+	int largest_area_3rd = 0;
+    int largest2_area_3rd =0;
+    int largest3_area =0;
+	int largest3_contour_index = 0;
+    int largest_contour_index =0;
+    int largest2_contour_index =0;
  
 	for (int i = 0; i < contours.size(); i++) // iterate through each contour. 
 	{
-		double a = contourArea(contours[i], false);  //  Find the area of contour
-		if (a > largest_area){
-			largest_area = a;
+		double a3 = contourArea(contours[i], false);  //  Find the area of contour
+		if (a3 > largest_area_3rd){
+			largest_area_3rd = a3;
 			largest_contour_index = i;                //Store the index of largest contour
 		}
+    //ROS_INFO_STREAM("Index1 " << largest_contour_index);
+
 	}
-    //ROS_INFO_STREAM("Index" << largest_contour_index);
+    for (int j = 0; j < contours.size(); j++){ // iterate through each contour. 
+		double a3 = contourArea(contours[j], false);  //  Find the area of contour
+		if (a3 < largest_area_3rd && a3 > largest2_area_3rd){
+			largest2_area_3rd = a3;
+            largest2_contour_index = j;
+
+		}
+    }
+    //ROS_INFO_STREAM("Index2 " << largest2_contour_index);
+
+    for (int k = 0; k < contours.size(); k++) {
+		double a3 = contourArea(contours[k], false);  //  Find the area of contour
+		if (a3 < largest2_area_3rd && a3 > largest3_area){
+			largest3_area = a3;
+            largest3_contour_index = k; 
+    	}
+
+    }
+    //ROS_INFO_STREAM("Index3 " << largest3_contour_index);
+    index_list.push_back(largest_contour_index);
+    index_list.push_back(largest2_contour_index);
+    index_list.push_back(largest3_contour_index);
+
+    ROS_INFO_STREAM("Index_1 " << index_list[0]);
+    ROS_INFO_STREAM("Index_2 " << index_list[1]);
+    ROS_INFO_STREAM("Index_3 " << index_list[2]);
  
-	return contours[largest_contour_index];
+	return index_list;
     
 }
+
 //*****************************************************************************************************
-
-
 
 
 /*
@@ -164,7 +210,10 @@ int main(int argc, char** argv) {
                                         openmvimg);
 
 
-    Gpos_pub = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos", 100);
+    Gpos_max = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_max", 100);
+    Gpos_2nd = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_2nd", 100);
+    Gpos_3rd = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_3rd", 100);
+     
      
     ros::spin();
 

@@ -44,8 +44,6 @@
  * Subscriber callbacks. The argument of the callback is a constant pointer to the received message
  */
 
-static const std::string OPENCV_WINDOW_1 = "Image window 1";
-static const std::string OPENCV_WINDOW_2 = "Image window 2";
 
 ros::Publisher WindowCtr_pub;
 
@@ -148,11 +146,11 @@ void Window_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
 
     }
 
-    cv::imshow("Window", cvImgDilate);
-    cv::imshow(OPENCV_WINDOW_1, cvImgErode);
-    cv::imshow(OPENCV_WINDOW_2, cvImgCtr);
+    cv::imshow("Contour", cvImgErode);
+    cv::imshow("Circle", cvImgCtr);
 
     cv::waitKey(3); 
+
 
 }
 

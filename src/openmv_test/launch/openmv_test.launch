@@ -1,0 +1,9 @@
+<launch>
+    <include file="$(find openmv_cam)/launch/openmv_cam.launch">
+    </include>
+
+	<node pkg="openmv_test" type="openmv_test" name="openmv_test" output="screen"/>
+ 
+	<node pkg="openmv_test" type="capture" name="capture" output="screen"/>
+
+</launch>

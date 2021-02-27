@@ -52,7 +52,6 @@ const std::string path = "/home/safmc/QRCode_ImgSaved/";
 // QR Code decoded info
 std::string decoded;;
 
-static const std::string OPENCV_WINDOW_1 = "Image window 1";
 
 typedef struct{
   std::string type;
@@ -89,15 +88,20 @@ void QRCode_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
     // 1280x720
 
     // Resize image
-    cv::Mat cvImgResized;
-    cv::resize(cvImgGry, cvImgResized, cv::Size(), 0.75, 0.75);
+    // cv::Mat cvImgResized;
+    // cv::resize(cvImgGry, cvImgResized, cv::Size(), 1, 1);
     // Size: 950x540
     // Resizing reduce the accuracy!!!!
+    
+    // Crop image
+    cv::Mat cvImgCrop;
+    cvImgGry(cv::Rect(427,240,426,240)).copyTo(cvImgCrop);
 
     // ZBar scanner
     zbar::ImageScanner scanner;
     scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE , 1); // scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE, 1);
-    zbar::Image zbarImg(cvImgResized.cols, cvImgResized.rows, "Y800", (uchar *)cvImgResized.data, cvImgResized.cols * cvImgResized.rows);
+    zbar::Image zbarImg(cvImgCrop.cols, cvImgCrop.rows, "Y800", (uchar *)cvImgCrop.data, cvImgCrop.cols * cvImgCrop.rows);
+    // zbar::Image zbarImg(cvImgResized.cols, cvImgResized.rows, "Y800", (uchar *)cvImgResized.data, cvImgResized.cols * cvImgResized.rows);
     int n = scanner.scan(zbarImg);
 
     for(zbar::Image::SymbolIterator symbol = zbarImg.symbol_begin(); symbol != zbarImg.symbol_end(); ++symbol)
@@ -109,13 +113,14 @@ void QRCode_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
 
         // Save image
         if (obj.data!=decoded){
-            SaveImg(cvImgResized);
+            SaveImg(cvImgCrop);
         }
         
         decoded = obj.data;
     }
 
-    cv::imshow(OPENCV_WINDOW_1, cvImgResized);
+    cv::imshow("raw", cvImgGry);
+    cv::imshow("Cropped", cvImgCrop);
     cv::waitKey(3); 
 
 }
