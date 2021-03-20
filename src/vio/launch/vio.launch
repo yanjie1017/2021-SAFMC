@@ -1,6 +1,6 @@
 <launch>
-
 	<node pkg="vio" type="vio" name="vio" output="screen">
 		<remap from="/zedm/vision_pose" to="/mavros/vision_pose/pose" />
+
 </node>
 </launch>

@@ -23,17 +23,23 @@ std::vector<int> find3BiggestContour(std::vector<std::vector<cv::Point>> contour
 ros::Publisher Gpos_max;
 ros::Publisher Gpos_2nd;
 ros::Publisher Gpos_3rd;
+ros::Publisher Gpos_4th;
+ros::Publisher Gpos_center;
+
 
 
 void openmvimg(const sensor_msgs::Image::ConstPtr& msg) {
 
-//Set Threshold
-cv::Scalar Lower = cv::Scalar (35,43,46);
-cv::Scalar Upper = cv::Scalar(77,255,255);
-//cv::Scalar Lower = cv::Scalar (65,1416,71);
-//cv::Scalar Upper = cv::Scalar (82,224,153);
+    //Set Threshold
+    //cv::Scalar Lower = cv::Scalar (72,150,148);
+    //cv::Scalar Upper = cv::Scalar(87,255,220);
+    //Indoorr Test
+    cv::Scalar Lower = cv::Scalar (35,43,46);
+    cv::Scalar Upper = cv::Scalar(77,255,255);
+    //cv::Scalar Lower = cv::Scalar (65,1416,71);
+    //cv::Scalar Upper = cv::Scalar (82,224,153);
 
-// Convert ROS image to OpenCV image
+    // Convert ROS image to OpenCV image
     cv_bridge::CvImageConstPtr cv_img;
 
     try
@@ -46,25 +52,31 @@ cv::Scalar Upper = cv::Scalar(77,255,255);
         return;
     } // Process cv_ptr->image using OpenCV
 
-
-// Store image in a Mat object 
+    // Store image in a Mat object 
     cv::Mat cvImg = cv_img->image;
-    
+        // Show size
+    cv::Size s = cvImg.size();
+    int rows = cvImg.rows;
+    int cols = cvImg.cols;
+    rows = s.height;
+    cols = s.width;
+    ROS_INFO("Size: %i x %i", cols, rows);
+
        
-//blur
+    //blur
     cv::Mat cvImgGBlur;
     cv::GaussianBlur(cvImg, cvImgGBlur, cv::Size(5,5), 3);
   
-//convert to HSV
+    //convert to HSV
     cv::Mat cvImgHSV;
     cv::cvtColor(cvImgGBlur, cvImgHSV, cv::COLOR_BGR2HSV);
 
-// add mask
+    // add mask
     cv::Mat cvMask;
     cv::inRange(cvImgHSV,Lower,Upper,cvMask);
 
-//Erode and Dialate
-//Set Core(Element)
+    //Erode and Dialate
+    //Set Core(Element)
     cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(10,10));
     cv::Mat element2 = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(15,15));
     cv::Mat cvImgErode;
@@ -73,70 +85,83 @@ cv::Scalar Upper = cv::Scalar(77,255,255);
     cv::erode(cvMask,cvImgErode,element);
     cv::dilate(cvImgErode, cvImgDilate , element);
 
-//*****************Find Biggest Contour************************************
+    //*****************Find Biggest Contour************************************
 
     std::vector<std::vector<cv::Point>> contours;
 	std::vector<cv::Vec4i> hierarchy;
     cv::findContours(cvImgDilate, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
 
-//** Check if contours = 0************
+    //** Check if contours = 0************
 
     if(contours.size() != 0 ){
 
-//**********************Min Enclosing circle**************
-    std::vector<int> index_list = find3BiggestContour(contours);
+        //**********************Min Enclosing circle**************
+        std::vector<int> index_list = find3BiggestContour(contours);
 
-    Mat cvcnt1 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
-    Point2f center1; 
-    float radius1;
-	minEnclosingCircle(contours[index_list[0]],center1,radius1);
-    circle(cvcnt1,center1,radius1,Scalar(255),3);
-    //ROS_INFO_STREAM("Index_1 " << index_list[0]);
+        Mat cvcnt1 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
+        Point2f center1; 
+        float radius1;
+	    minEnclosingCircle(contours[index_list[0]],center1,radius1);
+        circle(cvcnt1,center1,radius1,Scalar(255),3);
+        //ROS_INFO_STREAM("Index_1 " << index_list[0]);
 
-    //Mat cvcnt2 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
-    Point2f center2; 
-    float radius2;
-	minEnclosingCircle(contours[index_list[1]],center2,radius2);
-	circle(cvcnt1,center2,radius2,Scalar(255),3);
-    //ROS_INFO_STREAM("Index_2 " << index_list[1]);
+        Point2f center2; 
+        float radius2;
+	    minEnclosingCircle(contours[index_list[1]],center2,radius2);
+	    circle(cvcnt1,center2,radius2,Scalar(255),3);
+        //ROS_INFO_STREAM("Index_2 " << index_list[1]);
 
-    //Mat cvcnt3 = Mat::zeros(cvImgDilate.size(),CV_8UC1);
-    Point2f center3; 
-    float radius3; 
-	minEnclosingCircle(contours[index_list[2]],center3,radius3);
-    circle(cvcnt1,center3,radius3,Scalar(255),3);
-    //ROS_INFO_STREAM("Index_3 " << index_list[2]);
+        Point2f center3; 
+        float radius3; 
+	    minEnclosingCircle(contours[index_list[2]],center3,radius3);
+        circle(cvcnt1,center3,radius3,Scalar(255),3);
+        //ROS_INFO_STREAM("Index_3 " << index_list[2]);
 
-//Ouput
-//ROS_INFO_STREAM("Center x,y=" << center);
+        Point2f center4; 
+        float radius4; 
+	    minEnclosingCircle(contours[index_list[3]],center4,radius4);
+        circle(cvcnt1,center4,radius4,Scalar(255),3);
 
-//********************Publish Center Point*************** 
+        if(index_list[0] != index_list[1] != index_list[2] != index_list[3]){
+            //***********************Publish Center of 4 color blobs****************************
+            geometry_msgs::Point gpos_center;
+	        gpos_center.x = (center1.x + center2.x + center3.x + center4.x) / 4;
+            gpos_center.y = (center1.y + center2.y + center3.y + center4.y) / 4;
+            Gpos_center.publish(gpos_center);
+        }
+        else{
+            //********************Publish Center of Each Blob*************** 
     
-    geometry_msgs::Point gpos_max;
-	gpos_max.x = center1.x;
-    gpos_max.y = center1.y;
-    Gpos_max.publish(gpos_max);
+            geometry_msgs::Point gpos_max;
+	        gpos_max.x = center1.x;
+            gpos_max.y = center1.y;
+            Gpos_max.publish(gpos_max);
 
-    geometry_msgs::Point gpos_2nd;
-	gpos_2nd.x = center2.x;
-    gpos_2nd.y = center2.y;
-    Gpos_2nd.publish(gpos_2nd);
+            geometry_msgs::Point gpos_2nd;
+	        gpos_2nd.x = center2.x;
+            gpos_2nd.y = center2.y;
+            Gpos_2nd.publish(gpos_2nd);
 
-    geometry_msgs::Point gpos_3rd;
-	gpos_3rd.x = center3.x;
-    gpos_3rd.y = center3.y;
-    Gpos_3rd.publish(gpos_3rd);
-
-    //********************imshow*****************************
+            geometry_msgs::Point gpos_3rd;
+	        gpos_3rd.x = center3.x;
+            gpos_3rd.y = center3.y;
+            Gpos_3rd.publish(gpos_3rd);
+    
+            geometry_msgs::Point gpos_4th;
+	        gpos_3rd.x = center4.x;
+            gpos_3rd.y = center4.y;
+            Gpos_3rd.publish(gpos_4th);
+        }     
+        //********************imshow*****************************
  
-    imshow("Target",cvcnt1);
-    imshow("BW",cvImgDilate);
+        imshow("Target",cvcnt1);
+        imshow("BW",cvImgDilate);
     
     
     }
     imshow("RAW",cvImg);
     cv::waitKey(3);  
-//*******************************************************
+
 }
 
 //*****************************Find 3rd Biggestlargest2_contour_index = j; 
@@ -146,9 +171,11 @@ std::vector<int> find3BiggestContour(std::vector<std::vector<cv::Point>> contour
 	int largest_area_3rd = 0;
     int largest2_area_3rd =0;
     int largest3_area =0;
-	int largest3_contour_index = 0;
+	int largest3_contour_index =0;
     int largest_contour_index =0;
     int largest2_contour_index =0;
+    int largest4_area =0;
+    int largest4_contour_index =0;
  
 	for (int i = 0; i < contours.size(); i++) // iterate through each contour. 
 	{
@@ -179,13 +206,26 @@ std::vector<int> find3BiggestContour(std::vector<std::vector<cv::Point>> contour
 
     }
     //ROS_INFO_STREAM("Index3 " << largest3_contour_index);
+
+    for (int l = 0; l < contours.size(); l++) {
+		double a3 = contourArea(contours[l], false);  //  Find the area of contour
+		if (a3 < largest3_area && a3 > largest4_area){
+			largest4_area = a3;
+            largest4_contour_index = l; 
+    	}
+
+    }
+    //ROS_INFO_STREAM("Index4 " << largest4_contour_index);
+
     index_list.push_back(largest_contour_index);
     index_list.push_back(largest2_contour_index);
     index_list.push_back(largest3_contour_index);
+    index_list.push_back(largest4_contour_index);
 
     ROS_INFO_STREAM("Index_1 " << index_list[0]);
     ROS_INFO_STREAM("Index_2 " << index_list[1]);
     ROS_INFO_STREAM("Index_3 " << index_list[2]);
+    ROS_INFO_STREAM("Index_3 " << index_list[3]);
  
 	return index_list;
     
@@ -213,6 +253,8 @@ int main(int argc, char** argv) {
     Gpos_max = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_max", 100);
     Gpos_2nd = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_2nd", 100);
     Gpos_3rd = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_3rd", 100);
+    Gpos_4th = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_4th", 100);
+    Gpos_center = n.advertise<geometry_msgs::Point>("/M1/openmv/Gpos_center", 100);
      
      
     ros::spin();

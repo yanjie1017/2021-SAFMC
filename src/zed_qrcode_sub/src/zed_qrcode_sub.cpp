@@ -1,29 +1,3 @@
-///////////////////////////////////////////////////////////////////////////
-//
-// Copyright (c) 2018, STEREOLABS.
-//
-// All rights reserved.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-///////////////////////////////////////////////////////////////////////////
-
-/**
- * This tutorial demonstrates how to receive the Left and Right rectified images
- * from the ZED node
- */
-
-
 // Include the ROS library
 #include <ros/ros.h>
 
@@ -50,7 +24,11 @@ std::string imgCount;
 const std::string path = "/home/safmc/QRCode_ImgSaved/";
 
 // QR Code decoded info
-std::string decoded;;
+std::string decoded;
+
+// Crop image
+int row = 4;
+int col = 4;
 
 
 typedef struct{
@@ -67,6 +45,31 @@ void SaveImg(cv::Mat Img){
     cv::imwrite(imgName, Img);
     // Publish message
     ROS_INFO("QR Code detected. Image saved.");
+}
+
+void ScanImg(cv::Mat Img, cv::Mat cvImg){
+    // ZBar scanner
+    zbar::ImageScanner scanner;
+    scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE , 1); // scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE, 1);
+    zbar::Image zbarImg(Img.cols, Img.rows, "Y800", (uchar *)Img.data, Img.cols * Img.rows);
+    // zbar::Image zbarImg(cvImgResized.cols, cvImgResized.rows, "Y800", (uchar *)cvImgResized.data, cvImgResized.cols * cvImgResized.rows);
+    
+    int n = scanner.scan(zbarImg);
+
+    for(zbar::Image::SymbolIterator symbol = zbarImg.symbol_begin(); symbol != zbarImg.symbol_end(); ++symbol)
+    {   
+        // Print decoded info
+        decodedObject obj;
+        obj.data = symbol->get_data();
+        ROS_INFO_STREAM("Data : " << obj.data );
+
+        // Save image if current decoded != last decoded
+        if (obj.data!=decoded){
+            SaveImg(cvImg);
+        }
+
+        decoded = obj.data;
+    }
 }
 
 void QRCode_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
@@ -86,41 +89,22 @@ void QRCode_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
     // Store image in a Mat object 
     cv::Mat cvImgGry = cv_ptr->image;
     // 1280x720
-
-    // Resize image
-    // cv::Mat cvImgResized;
-    // cv::resize(cvImgGry, cvImgResized, cv::Size(), 1, 1);
-    // Size: 950x540
-    // Resizing reduce the accuracy!!!!
-    
+ 
     // Crop image
-    cv::Mat cvImgCrop;
-    cvImgGry(cv::Rect(427,240,426,240)).copyTo(cvImgCrop);
+    int numOfRows = std::floor(720/row);
+    int numOfCols = std::floor(1280/col);
 
-    // ZBar scanner
-    zbar::ImageScanner scanner;
-    scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE , 1); // scanner.set_config(ZBAR_QRCODE, ZBAR_CFG_ENABLE, 1);
-    zbar::Image zbarImg(cvImgCrop.cols, cvImgCrop.rows, "Y800", (uchar *)cvImgCrop.data, cvImgCrop.cols * cvImgCrop.rows);
-    // zbar::Image zbarImg(cvImgResized.cols, cvImgResized.rows, "Y800", (uchar *)cvImgResized.data, cvImgResized.cols * cvImgResized.rows);
-    int n = scanner.scan(zbarImg);
-
-    for(zbar::Image::SymbolIterator symbol = zbarImg.symbol_begin(); symbol != zbarImg.symbol_end(); ++symbol)
-    {   
-        // Print decoded info
-        decodedObject obj;
-        obj.data = symbol->get_data();
-        ROS_INFO_STREAM("Data : " << obj.data );
-
-        // Save image
-        if (obj.data!=decoded){
-            SaveImg(cvImgCrop);
+    for(int i = 0; i < row; i++ ){
+        for (int j = 0; j < col; j++ ){
+            cv::Mat cvImgCrop;
+            cvImgGry(cv::Rect(numOfCols*j,numOfRows*i,numOfCols,numOfRows)).copyTo(cvImgCrop);
+            ScanImg(cvImgCrop, cvImgGry);
+                //cv::imshow("raw", cvImgCrop);
+                //cv::waitKey(3); 
         }
-        
-        decoded = obj.data;
     }
 
     cv::imshow("raw", cvImgGry);
-    cv::imshow("Cropped", cvImgCrop);
     cv::waitKey(3); 
 
 }

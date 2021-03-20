@@ -145,12 +145,12 @@ void Window_LeftRectGray_Callback(const sensor_msgs::Image::ConstPtr& msg) {
       WindowCtr_pub.publish(windowCtr);
 
     }
-
+/*
     cv::imshow("Contour", cvImgErode);
     cv::imshow("Circle", cvImgCtr);
 
     cv::waitKey(3); 
-
+*/
 
 }
 
@@ -175,7 +175,7 @@ int main(int argc, char** argv) {
                                         depthLeftCallback);
     */
                                   
-    WindowCtr_pub = n.advertise<geometry_msgs::Point>("M3/zed/WindowCtr", 100);
+    WindowCtr_pub = n.advertise<geometry_msgs::Point>("M3/zed/WindowCtr", 10);
 
     ros::spin();
 

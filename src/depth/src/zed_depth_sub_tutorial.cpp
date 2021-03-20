@@ -1,17 +1,20 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Image.h>
 #include <std_msgs/String.h>
+#include <std_msgs/Float32.h>
 
 /**
  * Subscriber callback
  */
 
-ros::Publisher Depth_pub;
+ros::Publisher Depth_ind_pub;
+ros::Publisher Depth_val_pub;
 
 void depthCallback(const sensor_msgs::Image::ConstPtr& msg) {
     
     float depsum = 0.0;
     float depave = 0.0;
+    float cdepth = 0.0;
     int i =0;
     int numbers = 0;
 
@@ -52,15 +55,26 @@ void depthCallback(const sensor_msgs::Image::ConstPtr& msg) {
     ROS_INFO("Sum distance : %f m", depsum);
     //ROS_INFO("Center distance : %g m", depths[z]);
 
-    std_msgs::String depth;
+    cdepth = depths[centerIdx];
+
+    std_msgs::String depth_ind;
+    std_msgs::Float32 depth_val;
 
     if ((abs(depths[centerIdx] - depave))>0.2){
-        depth.data = "M2YES";
+        depth_ind.data = "M2YES";
     } else{
-        depth.data = "M2NO";
+        depth_ind.data = "M2NO";
     }
 
-    Depth_pub.publish(depth);
+    if(isnan(depths[centerIdx])){
+        depth_val.data = 0;
+    }else{
+        depth_val.data = cdepth; 
+    }
+
+    Depth_ind_pub.publish(depth_ind);
+    Depth_val_pub.publish(depth_val);
+
 
 }
 
@@ -75,7 +89,8 @@ int main(int argc, char** argv) {
 
     ros::Subscriber subDepth = n.subscribe("/zedm/zed_node/depth/depth_registered", 10, depthCallback);
 
-    Depth_pub = n.advertise<std_msgs::String>("/M2/zed/depth", 100);
+    Depth_ind_pub = n.advertise<std_msgs::String>("/M2/zed/depth_ind", 100);
+    Depth_val_pub = n.advertise<std_msgs::Float32>("/M2/zed/depth_val", 100);
 
     ros::spin();
 
