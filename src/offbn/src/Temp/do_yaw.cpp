@@ -15,9 +15,17 @@
 #include <std_msgs/Float32.h>
 #include <std_msgs/String.h>
 #include <mavros_msgs/CommandTOL.h>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Vector3.h>
+#include <tf2/LinearMath/Matrix3x3.h>
+
 #define PI 3.1415926
 #define INCREMENT 0.01
 
+
+double yaw_init, yaw_init_nwu,yaw_init_enu;
+double cos_y, sin_y;
+bool yaw_initialized;
 
 mavros_msgs::State current_state;
 void state_cb(const mavros_msgs::State::ConstPtr& msg){
@@ -208,7 +216,7 @@ void go_and_drop(float x, float y, geometry_msgs::PoseStamped& pose, ros::Publis
         move_to(mission1_center.pose.position.x, mission1_center.pose.position.y, 1.5, pose, local_pos_pub);
 }
 
-void avoid_crash(geometry_msgs::PoseStamped& pose, mavros_msgs::PositionTarget pos_sp, ros::Publisher& local_pos_pub) {
+void avoid_crash(geometry_msgs::PoseStamped& pose, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& local_pos_pub) {
     //FIX THIS
     if (depth_val.data - 500 < 50) {
         pose.pose.position.y -= 0.1;
@@ -223,7 +231,7 @@ void avoid_crash(geometry_msgs::PoseStamped& pose, mavros_msgs::PositionTarget p
     }
 }
 
-void match_with_curr(mavros_msgs::PositionTarget pos_sp) {
+void match_with_curr(mavros_msgs::PositionTarget& pos_sp) {
     pos_sp.position.x = current_pose.pose.position.x;
     pos_sp.position.y = current_pose.pose.position.y;
     pos_sp.position.z = current_pose.pose.position.z;
@@ -231,30 +239,17 @@ void match_with_curr(mavros_msgs::PositionTarget pos_sp) {
 
 void do_yaw(float angle, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
     ros::Rate rate(20.0);
-    ros::Time last_request = ros::Time::now();
+    
     pos_sp.yaw = angle;
     match_with_curr(pos_sp);
-    while (ros::Time::now() - last_request < ros::Duration(4.0)) {
+    ros::Time last_request = ros::Time::now();
+
+    while (ros::Time::now() - last_request < ros::Duration(5.0)) {
         position_setpoint_pub.publish(pos_sp);
         ros::spinOnce();
         rate.sleep();
     }
 }
-/*
-void at_corner(float angle,  mavros_msgs::PositionTarget pos_sp, ros::Publisher& position_setpoint_pub) {
-    ros::Rate rate(20.0);
-    move_to_raw(current_pose.pose.position.x + 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
-    do_yaw(angle, pos_sp, position_setpoint_pub);
-    //move_to(current_pose.pose.position.x + 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
-    mission2_temp = current_pose;
-    while(depth_ind.data == "YES") {
-        pos_sp.position.x += INCREMENT;
-        avoid_crash(pose, pos_sp, local_pos_pub);
-        positin_setpoint_pub.publish(pos_sp);
-        ros::spinOnce();
-        rate.sleep();
-    }
-}*/
 
 
 void m2_move (geometry_msgs::PoseStamped& pose, ros::Publisher& local_pos_pub) {
@@ -266,6 +261,30 @@ void m2_move (geometry_msgs::PoseStamped& pose, ros::Publisher& local_pos_pub) {
         ros::spinOnce();
         rate.sleep();
     }
+}
+
+void calculateYaw()
+{
+    tf2::Quaternion q(
+        current_pose.pose.orientation.x, current_pose.pose.orientation.y,
+        current_pose.pose.orientation.z, current_pose.pose.orientation.w);
+    tf2::Matrix3x3 m(q);
+    double roll, pitch, yaw;
+    m.getRPY(roll, pitch, yaw);
+    cos_y = cos(yaw);
+    sin_y = sin(yaw);
+    ROS_INFO("Initialized yaw value %f: ", yaw);
+    yaw_initialized = true;
+    yaw_init = yaw;
+    yaw_init_enu = yaw;
+
+    // Calculate yaw in NWU frame for take-off cmd
+    tf2::Matrix3x3 R_enu2nwu;
+    R_enu2nwu.setRPY(0.0, 0.0, -3.1415926 / 2);
+    tf2::Matrix3x3 R_nwu = R_enu2nwu * m;
+    double yaw_nwu;
+    R_nwu.getRPY(roll, pitch, yaw_nwu);
+    yaw_init_nwu = yaw_nwu;
 }
 
 void landCb()
@@ -323,7 +342,7 @@ int main(int argc, char **argv)
             ("/mavros/cmd/land");
     
     //the setpoint publishing rate MUST be faster than 2Hz
-    ros::Rate rate(5.0);
+    ros::Rate rate(20.0);
 
     // wait for FCU connection
     while(ros::ok() && !current_state.connected){
@@ -331,13 +350,20 @@ int main(int argc, char **argv)
         rate.sleep();
     }
 
+    calculateYaw(); //just for checking purpose.
     geometry_msgs::PoseStamped pose;
-    pose.pose.position.x = 0;
-    pose.pose.position.y = 0;
-    pose.pose.position.z = 1.5;
+	pose.pose.position.x = current_pose.pose.position.x;
+	pose.pose.position.y = current_pose.pose.position.y;
+	pose.pose.position.z = 1.5;
+
+    pose.pose.orientation.x = current_pose.pose.orientation.x;
+    pose.pose.orientation.y = current_pose.pose.orientation.y;
+    pose.pose.orientation.z = current_pose.pose.orientation.z;
+    pose.pose.orientation.w = current_pose.pose.orientation.w;
 
     mavros_msgs::PositionTarget pos_sp;
     pos_sp.yaw = 0;
+
 
     //send a few setpoints before starting
     for(int i = 100; ros::ok() && i > 0; --i){
@@ -375,30 +401,14 @@ int main(int argc, char **argv)
             }
         }
         
-        
         std::cout << "pose: "<< pose.pose.position.x << " " << pose.pose.position.y << " " << pose.pose.position.z;
         std::cout << " current_pose: "<< current_pose.pose.position.x << " " << current_pose.pose.position.y << " " << current_pose.pose.position.z << std::endl;
         
-       /* FOR TESTING LAND
-        if (once && (fabs(current_pose.pose.position.z - 1.5) < 0.05)) { //if the drone reached 6m height
-            landCb();
-            once = false;
-            pose = current_pose;
-        }
-        
-        */
-        //pose = current_pose;
-        
-        //landCb();
-        //pose.pose.position.z = 0;
 
         if (once && fabs(current_pose.pose.position.z - 1.5) < 0.05) {
-            pose = current_pose;
-            mission2_center = current_pose;
-            move_to_raw(current_pose.pose.position.x + 1.5, current_pose.pose.position.y, 1.5, pos_sp, position_setpoint_pub);
-            ROS_INFO("FINISHED GOING FORWARD");
-            move_to_raw(current_pose.pose.position.x, current_pose.pose.position.y + 1.5, 1.5, pos_sp, position_setpoint_pub);
-            ROS_INFO("FINISHED GOING LEFT");
+            match_with_curr(pos_sp);
+            do_yaw(- PI / 2 + yaw_init, pos_sp, position_setpoint_pub);
+            ROS_INFO("FINISHED YAWING. RESET");
             once = false;
         }
         local_pos_pub.publish(pose);

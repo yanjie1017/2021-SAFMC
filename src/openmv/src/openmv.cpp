@@ -34,8 +34,8 @@ void openmvimg(const sensor_msgs::Image::ConstPtr& msg) {
     //cv::Scalar Lower = cv::Scalar (72,150,148);
     //cv::Scalar Upper = cv::Scalar(87,255,220);
     //Indoorr Test
-    cv::Scalar Lower = cv::Scalar (35,43,46);
-    cv::Scalar Upper = cv::Scalar(77,255,255);
+    cv::Scalar Lower = cv::Scalar (65,138,175);
+    cv::Scalar Upper = cv::Scalar(93,200,255);
     //cv::Scalar Lower = cv::Scalar (65,1416,71);
     //cv::Scalar Upper = cv::Scalar (82,224,153);
 

@@ -60,7 +60,7 @@ void depthCallback(const sensor_msgs::Image::ConstPtr& msg) {
     std_msgs::String depth_ind;
     std_msgs::Float32 depth_val;
 
-    if ((abs(depths[centerIdx] - depave))>0.2){
+    if ((abs(depths[centerIdx] - depave))>1.5){
         depth_ind.data = "M2YES";
     } else{
         depth_ind.data = "M2NO";

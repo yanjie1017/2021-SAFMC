@@ -66,7 +66,7 @@ bool findMarker (int flag, geometry_msgs::PoseStamped& pose, ros::Publisher& loc
     int i = 0;
     if (flag == 1) {//move forward to find the marker
         while (!marker_found.x && ros::ok() && i < (2 / INCREMENT + 1)) {
-            pose.pose.position.y += INCREMENT;
+            pose.pose.position.x += INCREMENT;
             i++;
             std::cout << "FINDING MARKER. MOVED " << i * INCREMENT << " FORWARD IN TOTAL" << std::endl;
             local_pos_pub.publish(pose);
@@ -79,12 +79,12 @@ bool findMarker (int flag, geometry_msgs::PoseStamped& pose, ros::Publisher& loc
             ROS_INFO("COULDN'T FIND MARKER");
             return false;
         } else if (marker_found.x && i < (2 / INCREMENT + 1)) {
+            ROS_INFO("FOUND MARKER");
             return true;
         }
     } else {//move right to find the marker
         while (!marker_found.x && ros::ok() && i < 2 / INCREMENT + 1) {
-            pose.pose.position.x += INCREMENT;
-        
+            pose.pose.position.y -= INCREMENT;
             local_pos_pub.publish(pose);
             ros::spinOnce();
             rate.sleep();
@@ -104,35 +104,34 @@ void adjust(geometry_msgs::PoseStamped& pose, ros::Publisher& local_pos_pub, flo
     
     ros::Rate rate(20.0);
     while(flag && ros::ok()) {
-        x_diff = marker_center.x - uav_center_x;
-        y_diff = marker_center.y - uav_center_y;
+        x_diff = marker_found.x - uav_center_x;
+        y_diff = marker_found.y - uav_center_y;
         
 
         if (abs(x_diff) > THRESHOLD) {
             if (x_diff > 0) {
                 std::cout << "ADJUSTING: move right" <<std::endl; 
-                pose.pose.position.x += INCREMENT;
+                pose.pose.position.y -= INCREMENT;
             } else {
                 std::cout << "ADJUSTING: move left" <<std::endl;
-                pose.pose.position.x -= INCREMENT;
+                pose.pose.position.y += INCREMENT;
             }
         }
 
         if (abs(y_diff) > THRESHOLD) {
             if (y_diff > 0) {
                 std::cout << "ADJUSTING: move backward" <<std::endl;
-                pose.pose.position.y -= INCREMENT;
+                pose.pose.position.x -= INCREMENT;
             } else {
                 std::cout << "ADJUSTING: move forward" <<std::endl;
-                pose.pose.position.y += INCREMENT;
+                pose.pose.position.x += INCREMENT;
             }
         }
 
         if ((fabs(x_diff) <= THRESHOLD) && (fabs(y_diff) <= THRESHOLD)) {
             std::cout << "ALIGNED WITH MARKER" <<std::endl;
             flag = false;
-            pose.pose.position.x = current_pose.pose.position.x;
-            pose.pose.position.y = current_pose.pose.position.y;
+            pose = current_pose;
         }
         
         local_pos_pub.publish(pose);
@@ -165,17 +164,6 @@ void move_to(float x, float y, float z, geometry_msgs::PoseStamped& pose, ros::P
     }
 }
 
-void move_to_raw(float x, float y, float z, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
-    ros::Rate rate(20.0);
-    pos_sp.position.x = x;
-    pos_sp.position.y = y;
-    pos_sp.position.z = z;
-    while (!((fabs(current_pose.pose.position.x - pos_sp.position.x) < 0.07) && (fabs(current_pose.pose.position.y - pos_sp.position.y) < 0.07) && (fabs(current_pose.pose.position.z - pos_sp.position.z) < 0.07))) {
-        position_setpoint_pub.publish(pos_sp);
-        ros::spinOnce();
-        rate.sleep();
-    }
-}
 
 /*bool check_green()
  {
@@ -208,19 +196,63 @@ void go_and_drop(float x, float y, geometry_msgs::PoseStamped& pose, ros::Publis
         move_to(mission1_center.pose.position.x, mission1_center.pose.position.y, 1.5, pose, local_pos_pub);
 }
 
-void avoid_crash(geometry_msgs::PoseStamped& pose, mavros_msgs::PositionTarget pos_sp, ros::Publisher& local_pos_pub) {
-    //FIX THIS
-    if (depth_val.data - 500 < 50) {
-        pose.pose.position.y -= 0.1;
-        pose.pose.position.x = current_pose.pose.position.x;
-        pose.pose.position.z = current_pose.pose.position.z;
-        pos_sp.position.x = pose.pose.position.x;
-        pos_sp.position.y = pose.pose.position.y;
-        pos_sp.position.z = pose.pose.position.z;
-
-        local_pos_pub.publish(pose);
+void avoid_crash(int flag, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
+    ros::Rate rate(20.0);
+    if (depth_val.data < 500) {
+        switch(flag) {
+            case 1: {
+                pos_sp.position.x -= 0.05;
+                break;
+            }
+            case 2: {
+                pos_sp.position.y -= 0.05;
+                break;
+            }
+            case 3: {
+                pos_sp.position.x += 0.05;
+                break;
+            }
+            case 4: {
+                pos_sp.position.y += 0.05;
+                break;
+            }
+        }
+        
+        ros::Time last_request = ros::Time::now();
+        while (ros::Time::now() - last_request < ros::Duration(0.5)) {
+        position_setpoint_pub.publish(pos_sp);
         ros::spinOnce();
+        rate.sleep();
+        }   
     }
+}
+
+
+void move_to_raw(int flag, float x, float y, float z, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
+    ros::Rate rate(20.0);
+    pos_sp.position.x = x;
+    pos_sp.position.y = y;
+    pos_sp.position.z = z;
+    while (!((fabs(current_pose.pose.position.x - pos_sp.position.x) < 0.05) && (fabs(current_pose.pose.position.y - pos_sp.position.y) < 0.05) && (fabs(current_pose.pose.position.z - pos_sp.position.z) < 0.05))) {
+        avoid_crash(flag, pos_sp, position_setpoint_pub);
+        position_setpoint_pub.publish(pos_sp);
+        ros::spinOnce();
+        rate.sleep();
+    }
+    mission2_temp = current_pose;
+}
+
+void move_to_raw_without_avoid(float x, float y, float z, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
+    ros::Rate rate(20.0);
+    pos_sp.position.x = x;
+    pos_sp.position.y = y;
+    pos_sp.position.z = z;
+    while (!((fabs(current_pose.pose.position.x - pos_sp.position.x) < 0.05) && (fabs(current_pose.pose.position.y - pos_sp.position.y) < 0.05) && (fabs(current_pose.pose.position.z - pos_sp.position.z) < 0.05))) {
+        position_setpoint_pub.publish(pos_sp);
+        ros::spinOnce();
+        rate.sleep();
+    }
+    mission2_temp = current_pose;
 }
 
 void match_with_curr(mavros_msgs::PositionTarget& pos_sp) {
@@ -234,39 +266,109 @@ void do_yaw(float angle, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& po
     ros::Time last_request = ros::Time::now();
     pos_sp.yaw = angle;
     match_with_curr(pos_sp);
-    while (ros::Time::now() - last_request < ros::Duration(6.0)) {
+    while (ros::Time::now() - last_request < ros::Duration(4.0)) {
         position_setpoint_pub.publish(pos_sp);
         ros::spinOnce();
         rate.sleep();
     }
+    move_to_raw_without_avoid(mission2_temp.pose.position.x, mission2_temp.pose.position.y, mission2_temp.pose.position.z, pos_sp, position_setpoint_pub);
 }
-/*
-void at_corner(float angle,  mavros_msgs::PositionTarget pos_sp, ros::Publisher& position_setpoint_pub) {
+
+void m2_move (int flag1, int flag2, mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub) {
     ros::Rate rate(20.0);
-    move_to_raw(current_pose.pose.position.x + 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
-    do_yaw(angle, pos_sp, position_setpoint_pub);
-    //move_to(current_pose.pose.position.x + 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
-    mission2_temp = current_pose;
-    while(depth_ind.data == "YES") {
-        pos_sp.position.x += INCREMENT;
-        avoid_crash(pose, pos_sp, local_pos_pub);
-        positin_setpoint_pub.publish(pos_sp);
-        ros::spinOnce();
-        rate.sleep();
+    if (flag1) {
+        while (depth_ind.data == "NO") {
+            switch(flag2) {
+            case 1: { //1st side
+                pos_sp.position.y -= INCREMENT;
+                break;
+            }
+            case 2: { //2nd side
+                pos_sp.position.x += INCREMENT;
+                break;
+            }
+            case 3: { //3rd side
+                pos_sp.position.y += INCREMENT;
+                break;
+            }
+            case 4: { //4th side
+                pos_sp.position.x -= INCREMENT;
+                break;
+            }
+            }
+            position_setpoint_pub.publish(pos_sp);
+            ros::spinOnce();
+            rate.sleep();
+            
+        }
+    } else {
+        while (depth_ind.data == "YES") {
+            switch(flag2) {
+            case 1: { //1st side
+                pos_sp.position.x += INCREMENT;
+                break;
+            }
+            case 2: { //2nd side
+                pos_sp.position.y += INCREMENT;
+                break;
+            }
+            case 3: { //3rd side
+                pos_sp.position.x -= INCREMENT;
+                break;
+            }
+            case 4: { //4th side
+                pos_sp.position.y -= INCREMENT;
+                break;
+            }
+            }
+        
+            position_setpoint_pub.publish(pos_sp);
+            ros::spinOnce();
+            rate.sleep();
+        }
     }
-}*/
-
-
-void m2_move (geometry_msgs::PoseStamped& pose, ros::Publisher& local_pos_pub) {
-    ros::Rate rate(2.0);
-    pose = current_pose;
-    while (depth_ind.data == "NO") {
-        pose.pose.position.x += 0.1;
-        local_pos_pub.publish(pose);
-        ros::spinOnce();
-        rate.sleep();
-    }
+    match_with_curr(pos_sp);
 }
+
+
+void mission2(mavros_msgs::PositionTarget& pos_sp, ros::Publisher& position_setpoint_pub, geometry_msgs::PoseStamped& pose, ros::Publisher& local_pos_pub) {
+    ros::Rate rate(20.0);
+    //1st half of 1st side
+    move_to_raw(1,current_pose.pose.position.x, current_pose.pose.position.y - 2, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    m2_move(1, 1, pos_sp, position_setpoint_pub);
+    move_to_raw(1, current_pose.pose.position.x, current_pose.pose.position.y - 0.5, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    do_yaw(PI / 2, pos_sp, position_setpoint_pub);
+    m2_move(0, 1, pos_sp, position_setpoint_pub);
+
+    //2nd side
+    move_to_raw(2, current_pose.pose.position.x + 4, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    m2_move(1, 2, pos_sp, position_setpoint_pub);
+    move_to_raw(2, current_pose.pose.position.x + 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    do_yaw(PI, pos_sp, position_setpoint_pub);
+    m2_move(0, 2, pos_sp, position_setpoint_pub);
+
+    //3rd side
+    move_to_raw(3, current_pose.pose.position.x, current_pose.pose.position.y + 4, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    m2_move(1, 3, pos_sp, position_setpoint_pub);
+    move_to_raw(3, current_pose.pose.position.x, current_pose.pose.position.y + 0.5, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    do_yaw(PI * 1.5, pos_sp, position_setpoint_pub);
+    m2_move(0, 3, pos_sp, position_setpoint_pub);
+
+    //4th side
+    move_to_raw(4, current_pose.pose.position.x - 4, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    m2_move(1, 4, pos_sp, position_setpoint_pub);
+    move_to_raw(4, current_pose.pose.position.x - 0.5, current_pose.pose.position.y, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    do_yaw(PI * 2, pos_sp, position_setpoint_pub);
+    m2_move(0, 4, pos_sp, position_setpoint_pub);
+
+    //2nd half of 1st side
+    move_to_raw(1, current_pose.pose.position.x, current_pose.pose.position.y - 2, current_pose.pose.position.z, pos_sp, position_setpoint_pub);
+    
+    move_to(mission2_center.pose.position.x, mission2_center.pose.position.y, 1.5, pose, local_pos_pub);
+    move_to(mission2_center.pose.position.x, mission2_center.pose.position.y, 3, pose, local_pos_pub);
+    move_to(mission2_center.pose.position.x + 6, mission2_center.pose.position.y, 3, pose, local_pos_pub);
+}
+
 
 void landCb()
 {
@@ -323,7 +425,7 @@ int main(int argc, char **argv)
             ("/mavros/cmd/land");
     
     //the setpoint publishing rate MUST be faster than 2Hz
-    ros::Rate rate(5.0);
+    ros::Rate rate(20.0);
 
     // wait for FCU connection
     while(ros::ok() && !current_state.connected){
@@ -334,8 +436,7 @@ int main(int argc, char **argv)
     geometry_msgs::PoseStamped pose;
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
-    pose.pose.position.z = 1.5;
-
+    pose.pose.position.z = 2;
     mavros_msgs::PositionTarget pos_sp;
     pos_sp.yaw = 0;
 
@@ -374,30 +475,26 @@ int main(int argc, char **argv)
                 last_request = ros::Time::now();
             }
         }
-        
-        
-        std::cout << "pose: "<< pose.pose.position.x << " " << pose.pose.position.y << " " << pose.pose.position.z;
-        std::cout << " current_pose: "<< current_pose.pose.position.x << " " << current_pose.pose.position.y << " " << current_pose.pose.position.z << std::endl;
-        
-       /* FOR TESTING LAND
-        if (once && (fabs(current_pose.pose.position.z - 1.5) < 0.05)) { //if the drone reached 6m height
-            landCb();
-            once = false;
-            pose = current_pose;
-        }
-        
-        */
-        //pose = current_pose;
-        
-        //landCb();
-        //pose.pose.position.z = 0;
 
-        if (once && fabs(current_pose.pose.position.z - 1.5) < 0.05) {
+        std_msgs::UInt16 servo1;
+        std_msgs::UInt16 servo2;
+        std_msgs::UInt16 servo3;
+        servo1.data = 1;
+        servo2.data = 2;
+        servo3.data = 3;
+
+        if (once && fabs(current_pose.pose.position.z - 2) < 0.05) {
             pose = current_pose;
-            do_yaw(PI / 2, pos_sp, position_setpoint_pub);
-            ROS_INFO("FINISHED YAWING. RESET");
+            if (findMarker(1, pose, local_pos_pub)) {
+                adjust(pose, local_pos_pub, 30); //go to mission 2 point
+		        mission1_center = current_pose;
+                ROS_INFO("ADJUST COMPLETE");
+            }
+        
+            go_and_drop(0, 0, pose, local_pos_pub, servo1, servo_pub);
             once = false;
         }
+       
         local_pos_pub.publish(pose);
 
         ros::spinOnce();

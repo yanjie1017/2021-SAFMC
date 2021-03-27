@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(zed_tracking_sub)
+project(fyp)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -8,10 +8,14 @@ project(zed_tracking_sub)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  nav_msgs
+  cv_bridge
   roscpp
+  sensor_msgs
+  std_msgs
+  geometry_msgs
 )
+
+find_package(OpenCV REQUIRED)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -70,7 +74,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   nav_msgs
+#   sensor_msgs#   std_msgs
 # )
 
 ################################################
@@ -104,8 +108,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES zed_tracking_sub
-#  CATKIN_DEPENDS geometry_msgs nav_msgs roscpp
+#  LIBRARIES zed_window_sub
+#  CATKIN_DEPENDS cv_bridge roscpp sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
@@ -118,11 +122,13 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
 )
 
+link_directories(${OpenCV_LIB_DIR})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/zed_tracking_sub.cpp
+#   src/${PROJECT_NAME}/zed_window_sub.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -133,7 +139,7 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/zed_tracking_sub_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/zed_window_sub_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -197,12 +203,13 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_zed_tracking_sub.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_zed_window_sub.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-add_executable(zed_tracking_sub src/zed_tracking_sub)
-target_link_libraries(zed_tracking_sub ${catkin_LIBRARIES} )
+## Build
+add_executable(fyp src/openmv.cpp)
+target_link_libraries(fyp ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
